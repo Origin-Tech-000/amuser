@@ -10,6 +10,7 @@ import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/catagory.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -65,7 +66,7 @@ class HomeLanding extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: primarycolor,
                                 letterSpacing: 2,
-                                fontSize: 10,
+                                fontSize: 8.sp,
                               ),
                             ),
                           ),
@@ -78,7 +79,7 @@ class HomeLanding extends StatelessWidget {
                               child: Text(
                                 'Location',
                                 style: GoogleFonts.lora(
-                                  fontSize: 15,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black,
                                 ),
@@ -102,7 +103,7 @@ class HomeLanding extends StatelessWidget {
                             autoPlay: true,
                             enlargeCenterPage: true,
                             viewportFraction: 1.0,
-                            height: 150,
+                            height: 0.2.sh,
                           ),
                           items: [1, 2, 3, 4, 5].map((i) {
                             return Builder(
@@ -148,7 +149,7 @@ class HomeLanding extends StatelessWidget {
                               autoPlay: true,
                               enlargeCenterPage: true,
                               viewportFraction: 1.0,
-                              height: 110,
+                              height: 100.h,
                             ),
                             items: [1, 2, 3, 4, 5].map((i) {
                               return Builder(
@@ -191,7 +192,7 @@ class HomeLanding extends StatelessWidget {
                               style: GoogleFonts.kumbhSans(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
-                                fontSize: 17,
+                                fontSize: 14.sp,
                                 letterSpacing: 1,
                               ),
                             ),
@@ -220,7 +221,7 @@ class HomeLanding extends StatelessWidget {
                                         'KERALA SERVICES',
                                         style: GoogleFonts.poppins(
                                           color: fourthcolor,
-                                          fontSize: 12,
+                                          fontSize: 10.sp,
                                           letterSpacing: 1,
                                           fontWeight: FontWeight.bold,
                                         ),

@@ -7,6 +7,7 @@ import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart' as launch_url;
 
@@ -78,7 +79,7 @@ class SearchBarItems extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 70,
+        height: 50.sp,
         // color: fifth,
         decoration: BoxDecoration(
           color: fifth,
@@ -100,7 +101,7 @@ class SearchBarItems extends StatelessWidget {
 
             hint: Text(
               'Search in Catogery',
-              style: GoogleFonts.poppins(color: Colors.white),
+              style: GoogleFonts.poppins(color: Colors.white, fontSize: 12.sp),
             ),
             contentPadding: EdgeInsets.all(20),
             // hintStyle: GoogleFonts.poppins(
@@ -116,7 +117,7 @@ class SearchBarItems extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.search, color: Colors.white),
+                  child: Icon(Icons.search, color: Colors.white, size: 14.sp),
                 ),
               ),
             ),
@@ -245,7 +246,7 @@ class SearchItemTile extends StatelessWidget {
                                   style: GoogleFonts.poppins(
                                     color: fourthcolor,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 9,
+                                    fontSize: 7.sp,
                                   ),
                                 ),
                               ],
@@ -284,7 +285,7 @@ class SearchItemTile extends StatelessWidget {
                                         Text(
                                           'Call Now',
                                           style: GoogleFonts.prompt(
-                                            fontSize: 9,
+                                            fontSize: 8.sp,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
@@ -324,7 +325,7 @@ class SearchItemTile extends StatelessWidget {
                                         Text(
                                           'Get Direction',
                                           style: GoogleFonts.prompt(
-                                            fontSize: 9,
+                                            fontSize: 8.sp,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),

@@ -6,6 +6,7 @@ import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlace extends StatelessWidget {
@@ -50,7 +51,7 @@ class MarketPlace extends StatelessWidget {
                             child: Text(
                               'MARKETPLACE',
                               style: GoogleFonts.lora(
-                                fontSize: 18,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
                               ),
@@ -72,6 +73,7 @@ class MarketPlace extends StatelessWidget {
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   letterSpacing: 1,
+                                  fontSize: 12.sp,
                                 ),
                               ),
                             ),
@@ -100,7 +102,7 @@ class MarketPlace extends StatelessWidget {
                                 autoPlay: true,
                                 enlargeCenterPage: true,
                                 viewportFraction: 1.0,
-                                height: 150,
+                                height: 120.h,
                               ),
                               items: [1, 2, 3, 4, 5].map((i) {
                                 return Builder(
@@ -123,7 +125,7 @@ class MarketPlace extends StatelessWidget {
                                               child: Text(
                                                 'Primary Ads $i',
                                                 style: TextStyle(
-                                                  fontSize: 16.0,
+                                                  fontSize: 13.sp,
                                                   color: Colors.white,
                                                 ),
                                               ),
@@ -139,7 +141,7 @@ class MarketPlace extends StatelessWidget {
                                                 ),
                                               ),
                                               child: Container(
-                                                color: Colors.red,
+                                                // color: Colors.red,
                                                 child: Image.asset(
                                                   'assets/house.png',
                                                 ),
@@ -165,7 +167,7 @@ class MarketPlace extends StatelessWidget {
                     'What would you like to find today?',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 20.sp,
                       color: const Color.fromARGB(156, 255, 255, 255),
                     ),
                   ),

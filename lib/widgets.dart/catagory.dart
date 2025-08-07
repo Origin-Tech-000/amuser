@@ -3,6 +3,7 @@ import 'package:am/core/colors.dart';
 import 'package:am/domain/category/model/category_model.dart';
 import 'package:am/pages/searchitems.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -72,7 +73,7 @@ class CatogeryTile extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.prompt(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 15.sp,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.w600,
                           ),
@@ -86,8 +87,8 @@ class CatogeryTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: 60.sp,
+                        width: 60.sp,
                         // color: Colors.red,
                         child: Image.network(imageUrl, fit: BoxFit.contain),
                       ),

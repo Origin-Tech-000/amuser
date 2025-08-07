@@ -2,6 +2,7 @@ import 'package:am/application/location/location_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -320,7 +321,7 @@ class SelectStateKerala extends StatelessWidget {
                             child: Align(
                               child: Container(
                                 height: 80,
-                                width: 200,
+                                width: 180.w,
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.all(5),
@@ -328,7 +329,7 @@ class SelectStateKerala extends StatelessWidget {
                                       keralaDistricts[i].toUpperCase(),
                                       style: GoogleFonts.syne(
                                         color: Colors.white,
-                                        fontSize: 15,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 1,
                                       ),

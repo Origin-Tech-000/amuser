@@ -3,6 +3,7 @@ import 'package:am/pages/makertplace_car.dart';
 import 'package:am/pages/marketplace_property.dart';
 import 'package:am/pages/pageholder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Logo extends StatelessWidget {
@@ -20,7 +21,11 @@ class Logo extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 19),
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+              size: 14.sp,
+            ),
           ),
           Container(
             child: Padding(
@@ -31,7 +36,7 @@ class Logo extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   letterSpacing: 2,
-                  fontSize: 10,
+                  fontSize: 8.sp,
                 ),
               ),
             ),
@@ -57,7 +62,11 @@ class LogoWithBackHome extends StatelessWidget {
             onPressed: () {
               v.value = 0;
             },
-            icon: Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 19),
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+              size: 15.sp,
+            ),
           ),
           Container(
             child: Padding(
@@ -67,8 +76,9 @@ class LogoWithBackHome extends StatelessWidget {
                 style: GoogleFonts.prociono(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
+
                   letterSpacing: 2,
-                  fontSize: 10,
+                  fontSize: 8.sp,
                 ),
               ),
             ),
@@ -90,7 +100,7 @@ class LocationMark extends StatelessWidget {
         Text(
           'Location',
           style: GoogleFonts.lora(
-            fontSize: 15,
+            fontSize: 12.sp,
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -143,7 +153,7 @@ class CarsWidget extends StatelessWidget {
                         style: GoogleFonts.syne(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16.sp,
                           letterSpacing: 2,
                         ),
                       ),
@@ -160,7 +170,7 @@ class CarsWidget extends StatelessWidget {
                         bottom: -10,
                         left: 40,
                         child: Container(
-                          height: MediaQuery.of(context).size.height * .11,
+                          height: .10.sh,
 
                           // color: Colors.red,
                           child: Image.asset(
@@ -173,8 +183,8 @@ class CarsWidget extends StatelessWidget {
                         right: 8,
                         top: 3,
                         child: Container(
-                          height: 50,
-                          width: 50,
+                          height: 40.sp,
+                          width: 40.sp,
                           // color: Colors.red,
                           child: Image.asset('assets/ts.png'),
                         ),
@@ -234,7 +244,7 @@ class PropertyWidget extends StatelessWidget {
                         style: GoogleFonts.syne(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16.sp,
                           letterSpacing: 2,
                         ),
                       ),
@@ -248,10 +258,10 @@ class PropertyWidget extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Positioned(
-                        bottom: -38,
+                        bottom: -28.h,
                         left: 30,
                         child: Container(
-                          height: MediaQuery.of(context).size.height * .18,
+                          height: .18.sh,
 
                           // color: Colors.red,
                           child: Image.asset(
@@ -264,8 +274,8 @@ class PropertyWidget extends StatelessWidget {
                         right: 8,
                         top: 3,
                         child: Container(
-                          height: 50,
-                          width: 50,
+                          height: 40.sp,
+                          width: 50.sp,
                           // color: Colors.red,
                           child: Image.asset('assets/ts.png'),
                         ),

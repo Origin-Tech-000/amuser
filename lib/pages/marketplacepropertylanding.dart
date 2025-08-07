@@ -4,6 +4,7 @@ import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/marketplaceproperty_imageholder.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlacePropertyLanding extends StatelessWidget {
@@ -20,24 +21,29 @@ class MarketPlacePropertyLanding extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 16.sp,
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
 
       backgroundColor: primarycolor,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              // SafeArea(child: Logo()),
-              MarketPlacePropertyImageHolder(),
-              Details(),
-              DescriptionProperty(),
-              CallButtonProperty(),
-            ],
+      body: SizedBox(
+        // height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                // SafeArea(child: Logo()),
+                MarketPlacePropertyImageHolder(),
+                Details(),
+                DescriptionProperty(),
+                CallButtonProperty(),
+              ],
+            ),
           ),
         ),
       ),
@@ -71,8 +77,9 @@ class Details extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 4, bottom: 5),
+                    padding: EdgeInsets.only(right: 6.w, bottom: 5.h),
                     child: Container(
+                      height: 15.h,
                       // color: Colors.red,
                       child: Image.asset('assets/location.png'),
                     ),
@@ -81,7 +88,7 @@ class Details extends StatelessWidget {
                     'Location',
                     style: GoogleFonts.prompt(
                       color: const Color.fromARGB(182, 255, 255, 255),
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -91,7 +98,7 @@ class Details extends StatelessWidget {
                 'BRAND NAME',
                 style: GoogleFonts.prompt(
                   color: fourthcolor,
-                  fontSize: 18,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
@@ -99,7 +106,7 @@ class Details extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               Padding(
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -109,7 +116,7 @@ class Details extends StatelessWidget {
                         color: fifth,
                       ),
                       width: MediaQuery.of(context).size.width * .75,
-                      height: 50,
+                      height: 35.h,
                       child: Center(
                         child: Text(
                           'PRICE',
@@ -117,6 +124,7 @@ class Details extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
+                            fontSize: 13.sp,
                           ),
                         ),
                       ),
@@ -190,7 +198,7 @@ class CallButtonProperty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 6, 20, 5),
+      padding: const EdgeInsets.fromLTRB(20, 6, 20, 20),
       child: Container(
         decoration: BoxDecoration(
           color: thirdcolor,
@@ -215,6 +223,7 @@ class CallButtonProperty extends StatelessWidget {
                   style: GoogleFonts.prompt(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    fontSize: 12.sp,
                   ),
                 ),
               ),
