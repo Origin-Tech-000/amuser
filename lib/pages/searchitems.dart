@@ -1,11 +1,10 @@
-import 'dart:developer';
-
 import 'package:am/application/category/category_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/pages/itemlanding.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -152,7 +151,8 @@ class SearchItemTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
       child: Container(
-        height: MediaQuery.of(context).size.height * .23,
+        // height: MediaQuery.of(context).size.height * .23,
+        // height: 500,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: primarycolor,
@@ -169,7 +169,7 @@ class SearchItemTile extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * .20,
+                  // height: MediaQuery.of(context).size.height * .20,
                   decoration: BoxDecoration(
                     color: thirdcolor,
                     borderRadius: BorderRadius.circular(13),
@@ -186,7 +186,7 @@ class SearchItemTile extends StatelessWidget {
                             color: fourthcolor,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1,
-                            fontSize: 16,
+                            fontSize: 14.sp,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -197,7 +197,7 @@ class SearchItemTile extends StatelessWidget {
                             color: const Color.fromARGB(156, 255, 255, 255),
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1,
-                            fontSize: 13,
+                            fontSize: 11.sp,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -210,8 +210,8 @@ class SearchItemTile extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.only(right: 4, top: 5),
                               child: Container(
-                                width: 25,
-                                height: 25,
+                                width: 20.sp,
+                                height: 20.sp,
                                 decoration: BoxDecoration(
                                   color: fifth, // You can customize the color
                                   shape: BoxShape.circle,
@@ -222,6 +222,7 @@ class SearchItemTile extends StatelessWidget {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
+                                    fontSize: 10.sp,
                                   ),
                                 ),
                               ),
@@ -237,7 +238,7 @@ class SearchItemTile extends StatelessWidget {
                                   text: desc,
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
-                                    fontSize: 9,
+                                    fontSize: 7.sp,
                                   ),
                                 ),
                                 TextSpan(
@@ -261,7 +262,6 @@ class SearchItemTile extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () async {
-                                  log('call now');
                                   Uri uri = Uri(
                                     scheme: 'tel',
                                     path: contactNumber,
@@ -304,7 +304,6 @@ class SearchItemTile extends StatelessWidget {
                               SizedBox(width: 10),
                               GestureDetector(
                                 onTap: () async {
-                                  log('go to location');
                                   Uri uri = Uri.parse(location);
                                   await launch_url.launchUrl(uri);
                                 },

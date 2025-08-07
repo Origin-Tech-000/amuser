@@ -127,43 +127,38 @@ class ItemLanding extends StatelessWidget {
                                       5,
                                     ),
 
-                                  child: Text(
-                                    'TIME ${model.timeOpening} AM - ${model.timeClosing} PM',
-                                    style: GoogleFonts.prompt(
-                                      color: const Color.fromARGB(
-                                        156,
-                                        255,
-                                        255,
-                                        255,
+                                    child: Text(
+                                      'TIME ${model.timeOpening} AM - ${model.timeClosing} PM',
+                                      style: GoogleFonts.prompt(
+                                        color: const Color.fromARGB(
+                                          156,
+                                          255,
+                                          255,
+                                          255,
+                                        ),
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 1,
+                                        fontSize: 11.sp,
                                       ),
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 1,
-                                      fontSize: 13,
-                                    ),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                    0,
-                                    5,
-                                    5,
-                                    5,
-                                  ),
-                                  child: Text(
-                                    "'${model.moto}'",
-                                    style: GoogleFonts.prompt(
-                                      color: const Color.fromARGB(
-                                        170,
-                                        255,
-                                        255,
-                                        255,
-                                      ),
-                                      fontSize: 12,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
-                                ),
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 5, 5, 2.h),
+                                    child: Text(
+                                      "'${model.moto}'",
+                                      style: GoogleFonts.prompt(
+                                        color: const Color.fromARGB(
+                                          170,
+                                          255,
+                                          255,
+                                          255,
+                                        ),
+                                        fontSize: 10.sp,
+                                      ),
+                                    ),
+                                  ),
 
                                   Expanded(child: WeekDays()),
                                 ],
@@ -270,9 +265,9 @@ class ItemLanding extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(7),
                           child: Buttons(
-                          contactNumber: model.contactNumber,
-                          location: model.location,
-                        ),
+                            contactNumber: model.contactNumber,
+                            location: model.location,
+                          ),
                         ),
                       ],
                     ),
@@ -321,7 +316,7 @@ class Buttons extends StatelessWidget {
                     Text(
                       'Call Now',
                       style: GoogleFonts.prompt(
-                        fontSize: 14,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -357,7 +352,7 @@ class Buttons extends StatelessWidget {
                     Text(
                       'Get Direction',
                       style: GoogleFonts.prompt(
-                        fontSize: 14,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

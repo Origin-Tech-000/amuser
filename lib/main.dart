@@ -32,9 +32,16 @@ Future<void> main() async {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          home: CheckPage(),
-          debugShowCheckedModeBanner: false,
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => getIt<CategoryBloc>()),
+            BlocProvider(create: (context) => getIt<LocationBloc>()),
+          ],
+
+          child: MaterialApp(
+            home: CheckPage(),
+            debugShowCheckedModeBanner: false,
+          ),
         );
       },
     ),
