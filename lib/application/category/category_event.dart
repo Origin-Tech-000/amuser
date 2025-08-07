@@ -4,4 +4,7 @@ part of 'category_bloc.dart';
 sealed class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.loadCategories({required LocationModel model}) =
       _LoadCategories;
+  const factory CategoryEvent.loadCategoriesItems({
+    required CategoryModel model,
+  }) = _LoadCategoriesItems;
 }

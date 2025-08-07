@@ -55,14 +55,16 @@ extension FailuresPatterns on Failures {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _getLocationFailure value)?  getLocationFailure,TResult Function( _getLocationServerError value)?  getLocationServerError,TResult Function( _GetCategoryFailure value)?  getCategoryFailure,TResult Function( _GetCategorySeverError value)?  getCategorySeverError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _getLocationFailure value)?  getLocationFailure,TResult Function( _getLocationServerError value)?  getLocationServerError,TResult Function( _GetCategoryFailure value)?  getCategoryFailure,TResult Function( _GetCategorySeverError value)?  getCategorySeverError,TResult Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure(_that);case _getLocationServerError() when getLocationServerError != null:
 return getLocationServerError(_that);case _GetCategoryFailure() when getCategoryFailure != null:
 return getCategoryFailure(_that);case _GetCategorySeverError() when getCategorySeverError != null:
-return getCategorySeverError(_that);case _:
+return getCategorySeverError(_that);case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
+return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
+return getCategoryItemsSeverError(_that);case _:
   return orElse();
 
 }
@@ -80,14 +82,16 @@ return getCategorySeverError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _getLocationFailure value)  getLocationFailure,required TResult Function( _getLocationServerError value)  getLocationServerError,required TResult Function( _GetCategoryFailure value)  getCategoryFailure,required TResult Function( _GetCategorySeverError value)  getCategorySeverError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _getLocationFailure value)  getLocationFailure,required TResult Function( _getLocationServerError value)  getLocationServerError,required TResult Function( _GetCategoryFailure value)  getCategoryFailure,required TResult Function( _GetCategorySeverError value)  getCategorySeverError,required TResult Function( _GetCategoryItemsFailure value)  getCategoryItemsFailure,required TResult Function( _GetCategoryItemsSeverError value)  getCategoryItemsSeverError,}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure():
 return getLocationFailure(_that);case _getLocationServerError():
 return getLocationServerError(_that);case _GetCategoryFailure():
 return getCategoryFailure(_that);case _GetCategorySeverError():
-return getCategorySeverError(_that);}
+return getCategorySeverError(_that);case _GetCategoryItemsFailure():
+return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError():
+return getCategoryItemsSeverError(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -101,14 +105,16 @@ return getCategorySeverError(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _getLocationFailure value)?  getLocationFailure,TResult? Function( _getLocationServerError value)?  getLocationServerError,TResult? Function( _GetCategoryFailure value)?  getCategoryFailure,TResult? Function( _GetCategorySeverError value)?  getCategorySeverError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _getLocationFailure value)?  getLocationFailure,TResult? Function( _getLocationServerError value)?  getLocationServerError,TResult? Function( _GetCategoryFailure value)?  getCategoryFailure,TResult? Function( _GetCategorySeverError value)?  getCategorySeverError,TResult? Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult? Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure(_that);case _getLocationServerError() when getLocationServerError != null:
 return getLocationServerError(_that);case _GetCategoryFailure() when getCategoryFailure != null:
 return getCategoryFailure(_that);case _GetCategorySeverError() when getCategorySeverError != null:
-return getCategorySeverError(_that);case _:
+return getCategorySeverError(_that);case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
+return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
+return getCategoryItemsSeverError(_that);case _:
   return null;
 
 }
@@ -125,13 +131,15 @@ return getCategorySeverError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getLocationFailure,TResult Function()?  getLocationServerError,TResult Function()?  getCategoryFailure,TResult Function()?  getCategorySeverError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getLocationFailure,TResult Function()?  getLocationServerError,TResult Function()?  getCategoryFailure,TResult Function()?  getCategorySeverError,TResult Function()?  getCategoryItemsFailure,TResult Function()?  getCategoryItemsSeverError,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure();case _getLocationServerError() when getLocationServerError != null:
 return getLocationServerError();case _GetCategoryFailure() when getCategoryFailure != null:
 return getCategoryFailure();case _GetCategorySeverError() when getCategorySeverError != null:
-return getCategorySeverError();case _:
+return getCategorySeverError();case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
+return getCategoryItemsFailure();case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
+return getCategoryItemsSeverError();case _:
   return orElse();
 
 }
@@ -149,13 +157,15 @@ return getCategorySeverError();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getLocationFailure,required TResult Function()  getLocationServerError,required TResult Function()  getCategoryFailure,required TResult Function()  getCategorySeverError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getLocationFailure,required TResult Function()  getLocationServerError,required TResult Function()  getCategoryFailure,required TResult Function()  getCategorySeverError,required TResult Function()  getCategoryItemsFailure,required TResult Function()  getCategoryItemsSeverError,}) {final _that = this;
 switch (_that) {
 case _getLocationFailure():
 return getLocationFailure();case _getLocationServerError():
 return getLocationServerError();case _GetCategoryFailure():
 return getCategoryFailure();case _GetCategorySeverError():
-return getCategorySeverError();}
+return getCategorySeverError();case _GetCategoryItemsFailure():
+return getCategoryItemsFailure();case _GetCategoryItemsSeverError():
+return getCategoryItemsSeverError();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -169,13 +179,15 @@ return getCategorySeverError();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getLocationFailure,TResult? Function()?  getLocationServerError,TResult? Function()?  getCategoryFailure,TResult? Function()?  getCategorySeverError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getLocationFailure,TResult? Function()?  getLocationServerError,TResult? Function()?  getCategoryFailure,TResult? Function()?  getCategorySeverError,TResult? Function()?  getCategoryItemsFailure,TResult? Function()?  getCategoryItemsSeverError,}) {final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure();case _getLocationServerError() when getLocationServerError != null:
 return getLocationServerError();case _GetCategoryFailure() when getCategoryFailure != null:
 return getCategoryFailure();case _GetCategorySeverError() when getCategorySeverError != null:
-return getCategorySeverError();case _:
+return getCategorySeverError();case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
+return getCategoryItemsFailure();case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
+return getCategoryItemsSeverError();case _:
   return null;
 
 }
@@ -303,6 +315,70 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'Failures.getCategorySeverError()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetCategoryItemsFailure implements Failures {
+  const _GetCategoryItemsFailure();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetCategoryItemsFailure);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getCategoryItemsFailure()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetCategoryItemsSeverError implements Failures {
+  const _GetCategoryItemsSeverError();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetCategoryItemsSeverError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getCategoryItemsSeverError()';
 }
 
 

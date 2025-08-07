@@ -1,10 +1,14 @@
+import 'dart:developer';
+
+import 'package:am/application/category/category_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/pages/itemlanding.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart' as launch_url;
 
 class SearchItems extends StatelessWidget {
   const SearchItems({super.key});
@@ -24,11 +28,24 @@ class SearchItems extends StatelessWidget {
               SearchBarItems(),
               Expanded(
                 child: Container(
-                  child: ListView.builder(
-                    itemBuilder: (context, i) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 6),
-                        child: SearchItemTile(),
+                  child: BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, state) {
+                      return ListView.builder(
+                        itemCount: state.catItems.length,
+                        itemBuilder: (context, i) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: SearchItemTile(
+                              name: state.catItems[i].shopName,
+                              ot: state.catItems[i].timeOpening,
+                              ct: state.catItems[i].timeClosing,
+                              desc: state.catItems[i].description,
+                              logoUrl: state.catItems[i].logoUrl!,
+                              contactNumber: state.catItems[i].contactNumber,
+                              location: state.catItems[i].location,
+                            ),
+                          );
+                        },
                       );
                     },
                   ),
@@ -101,7 +118,23 @@ class SearchBarItems extends StatelessWidget {
 }
 
 class SearchItemTile extends StatelessWidget {
-  const SearchItemTile({super.key});
+  final String name;
+  final String ot;
+  final String ct;
+  final String desc;
+  final String logoUrl;
+  final String contactNumber;
+  final String location;
+  const SearchItemTile({
+    super.key,
+    required this.name,
+    required this.ot,
+    required this.ct,
+    required this.desc,
+    required this.logoUrl,
+    required this.contactNumber,
+    required this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +180,7 @@ class SearchItemTile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'HOSUTON HOSPITAL',
+                            name,
                             style: GoogleFonts.prompt(
                               color: fourthcolor,
                               fontWeight: FontWeight.w600,
@@ -158,7 +191,7 @@ class SearchItemTile extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            'TIME 10:00AM - 09:00AM',
+                            'TIME $ot AM - $ct PM',
                             style: GoogleFonts.prompt(
                               color: const Color.fromARGB(156, 255, 255, 255),
                               fontWeight: FontWeight.w600,
@@ -203,8 +236,7 @@ class SearchItemTile extends StatelessWidget {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text:
-                                        'This is a short description about the week or schedule.This is a short description about the week or schedule.This is a short description about the week or schedule. ',
+                                    text: desc,
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
                                       fontSize: 9,
@@ -229,70 +261,89 @@ class SearchItemTile extends StatelessWidget {
                             padding: const EdgeInsets.fromLTRB(0, 8, 0, 5),
                             child: Row(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: fifth,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      15,
-                                      8,
-                                      15,
-                                      8,
+                                GestureDetector(
+                                  onTap: () async {
+                                    log('call now');
+                                    Uri uri = Uri(
+                                      scheme: 'tel',
+                                      path: contactNumber,
+                                    );
+                                    await launch_url.launchUrl(uri);
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: fifth,
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          'Call Now',
-                                          style: GoogleFonts.prompt(
-                                            fontSize: 9,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        15,
+                                        8,
+                                        15,
+                                        8,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Call Now',
+                                            style: GoogleFonts.prompt(
+                                              fontSize: 9,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(width: 4),
-                                        SizedBox(
-                                          height: 10,
-                                          width: 10,
-                                          child: Image.asset('assets/call.png'),
-                                        ),
-                                      ],
+                                          SizedBox(width: 4),
+                                          SizedBox(
+                                            height: 10,
+                                            width: 10,
+                                            child: Image.asset(
+                                              'assets/call.png',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 SizedBox(width: 10),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: fifth,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      15,
-                                      8,
-                                      15,
-                                      8,
+                                GestureDetector(
+                                  onTap: () async {
+                                    log('go to location');
+                                    Uri uri = Uri.parse(location);
+                                    await launch_url.launchUrl(uri);
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: fifth,
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          'Get Direction',
-                                          style: GoogleFonts.prompt(
-                                            fontSize: 9,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        15,
+                                        8,
+                                        15,
+                                        8,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Get Direction',
+                                            style: GoogleFonts.prompt(
+                                              fontSize: 9,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(width: 4),
-                                        SizedBox(
-                                          height: 10,
-                                          width: 10,
-                                          child: Image.asset(
-                                            'assets/direction.png',
+                                          SizedBox(width: 4),
+                                          SizedBox(
+                                            height: 10,
+                                            width: 10,
+                                            child: Image.asset(
+                                              'assets/direction.png',
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -309,7 +360,7 @@ class SearchItemTile extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   height: MediaQuery.of(context).size.height * .17,
-                  child: Image.asset('assets/sample.png'),
+                  child: Image.network(logoUrl),
                 ),
               ),
             ],

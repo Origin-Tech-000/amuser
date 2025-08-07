@@ -98,6 +98,9 @@ class SelectCountry extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
                   child: GestureDetector(
                     onTap: () {
+                      context.read<LocationBloc>().add(
+                        LocationEvent.getStates(countryName: "Usa"),
+                      );
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (ctx) => SelectStateUsa()),
                       );

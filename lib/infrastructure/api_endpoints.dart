@@ -7,4 +7,5 @@ class ApiEndPoints {
 
   //category
   static const getCat = "/categories/getCategories";
+  static const getCatItems = "/categories/getCategoriesItems";
 }
