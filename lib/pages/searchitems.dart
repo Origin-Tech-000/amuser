@@ -1,4 +1,5 @@
 import 'package:am/core/colors.dart';
+import 'package:am/pages/itemlanding.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
@@ -106,199 +107,213 @@ class SearchItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-      child: Container(
-        height: MediaQuery.of(context).size.height * .23,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: primarycolor,
-          boxShadow: [
-            BoxShadow(color: Colors.black, offset: Offset(0, 2), blurRadius: 8),
-          ],
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (ctx) => ItemLanding()));
+        },
+        child: Container(
+          height: MediaQuery.of(context).size.height * .23,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: primarycolor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black,
+                offset: Offset(0, 2),
+                blurRadius: 8,
+              ),
+            ],
 
-          borderRadius: BorderRadius.circular(18),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * .20,
-                  decoration: BoxDecoration(
-                    color: thirdcolor,
-                    borderRadius: BorderRadius.circular(13),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'HOSUTON HOSPITAL',
-                          style: GoogleFonts.prompt(
-                            color: fourthcolor,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1,
-                            fontSize: 16,
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * .20,
+                    decoration: BoxDecoration(
+                      color: thirdcolor,
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'HOSUTON HOSPITAL',
+                            style: GoogleFonts.prompt(
+                              color: fourthcolor,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1,
+                              fontSize: 16,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          'TIME 10:00AM - 09:00AM',
-                          style: GoogleFonts.prompt(
-                            color: const Color.fromARGB(156, 255, 255, 255),
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1,
-                            fontSize: 13,
+                          Text(
+                            'TIME 10:00AM - 09:00AM',
+                            style: GoogleFonts.prompt(
+                              color: const Color.fromARGB(156, 255, 255, 255),
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1,
+                              fontSize: 13,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((
-                            day,
-                          ) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 4, top: 5),
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: fifth, // You can customize the color
-                                  shape: BoxShape.circle,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((
+                              day,
+                            ) {
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 4,
+                                  top: 5,
                                 ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  day,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                                child: Container(
+                                  width: 25,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    color: fifth, // You can customize the color
+                                    shape: BoxShape.circle,
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    day,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
+                              );
+                            }).toList(),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        'This is a short description about the week or schedule.This is a short description about the week or schedule.This is a short description about the week or schedule. ',
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontSize: 9,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Read more',
+
+                                    style: GoogleFonts.poppins(
+                                      color: fourthcolor,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 9,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            );
-                          }).toList(),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Text.rich(
-                            TextSpan(
+                              maxLines: 4,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 8, 0, 5),
+                            child: Row(
                               children: [
-                                TextSpan(
-                                  text:
-                                      'This is a short description about the week or schedule.This is a short description about the week or schedule.This is a short description about the week or schedule. ',
-                                  style: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontSize: 9,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: fifth,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      15,
+                                      8,
+                                      15,
+                                      8,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          'Call Now',
+                                          style: GoogleFonts.prompt(
+                                            fontSize: 9,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        SizedBox(width: 4),
+                                        SizedBox(
+                                          height: 10,
+                                          width: 10,
+                                          child: Image.asset('assets/call.png'),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                TextSpan(
-                                  text: 'Read more',
-
-                                  style: GoogleFonts.poppins(
-                                    color: fourthcolor,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 9,
+                                SizedBox(width: 10),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: fifth,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      15,
+                                      8,
+                                      15,
+                                      8,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          'Get Direction',
+                                          style: GoogleFonts.prompt(
+                                            fontSize: 9,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        SizedBox(width: 4),
+                                        SizedBox(
+                                          height: 10,
+                                          width: 10,
+                                          child: Image.asset(
+                                            'assets/direction.png',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
                             ),
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 5),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: fifth,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                    15,
-                                    8,
-                                    15,
-                                    8,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        'Call Now',
-                                        style: GoogleFonts.prompt(
-                                          fontSize: 9,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(width: 4),
-                                      SizedBox(
-                                        height: 10,
-                                        width: 10,
-                                        child: Image.asset('assets/call.png'),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: fifth,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                    15,
-                                    8,
-                                    15,
-                                    8,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        'Get Direction',
-                                        style: GoogleFonts.prompt(
-                                          fontSize: 9,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(width: 4),
-                                      SizedBox(
-                                        height: 10,
-                                        width: 10,
-                                        child: Image.asset(
-                                          'assets/direction.png',
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: MediaQuery.of(context).size.height * .17,
-                child: Image.asset('assets/sample.png'),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * .17,
+                  child: Image.asset('assets/sample.png'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

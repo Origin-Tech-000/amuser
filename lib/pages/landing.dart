@@ -206,19 +206,26 @@ class HomeLanding extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Text(
-                                      'KERALA SERVICES',
-                                      style: GoogleFonts.poppins(
-                                        color: fourthcolor,
-                                        fontSize: 12,
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.bold,
+                                    padding: const EdgeInsets.all(15),
+                                    child: FittedBox(
+                                      child: Text(
+                                        'KERALA SERVICES',
+                                        style: GoogleFonts.poppins(
+                                          color: fourthcolor,
+                                          fontSize: 12,
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.only(
+                                      left: 5,
+                                      right: 8,
+                                      top: 8,
+                                      bottom: 8,
+                                    ),
                                     child: Container(
                                       height: 20,
                                       width: 20,
