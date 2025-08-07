@@ -1,5 +1,6 @@
 import 'package:am/pages/pageholder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -21,7 +22,7 @@ class BottomNavBar extends StatelessWidget {
           stops: [0, 0.47, 1],
         ),
       ),
-      height: 90,
+      height: 0.1.sh,
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Row(
@@ -36,8 +37,8 @@ class BottomNavBar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Container(
-                      height: 30,
-                      width: 30,
+                      height: 15.sp,
+                      width: 15.sp,
                       child: Image.asset('assets/1.png'),
                     ),
                   ),
@@ -45,7 +46,8 @@ class BottomNavBar extends StatelessWidget {
                     'Home',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
                     ),
                   ),
                 ],
@@ -60,8 +62,8 @@ class BottomNavBar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Container(
-                      height: 30,
-                      width: 30,
+                      height: 15.sp,
+                      width: 15.sp,
                       child: Image.asset('assets/2.png'),
                     ),
                   ),
@@ -69,7 +71,8 @@ class BottomNavBar extends StatelessWidget {
                     'Search',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
                     ),
                   ),
                 ],
@@ -84,8 +87,8 @@ class BottomNavBar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Container(
-                      height: 30,
-                      width: 30,
+                      height: 15.sp,
+                      width: 15.sp,
                       child: Image.asset('assets/3.png'),
                     ),
                   ),
@@ -93,7 +96,8 @@ class BottomNavBar extends StatelessWidget {
                     'Shop',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
                     ),
                   ),
                 ],
@@ -108,8 +112,8 @@ class BottomNavBar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Container(
-                      height: 30,
-                      width: 30,
+                      height: 15.sp,
+                      width: 15.sp,
                       child: Image.asset('assets/3.png'),
                     ),
                   ),
@@ -117,7 +121,8 @@ class BottomNavBar extends StatelessWidget {
                     'Locations',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
                     ),
                   ),
                 ],

@@ -3,6 +3,7 @@ import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/catagory.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchCatagory extends StatelessWidget {
@@ -41,7 +42,7 @@ class SearchCatagory extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 70,
+                  height: 50.sp,
                   // color: Colors.blue,
                   decoration: BoxDecoration(
                     color: primarycolor,
@@ -57,14 +58,21 @@ class SearchCatagory extends StatelessWidget {
                       border: InputBorder.none,
                       hint: Text(
                         'Search in Catogery',
-                        style: GoogleFonts.poppins(color: Colors.white),
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 12.sp,
+                        ),
                       ),
                       contentPadding: EdgeInsets.all(20),
                       // hintStyle: GoogleFonts.poppins(
                       //   color: const Color.fromARGB(255, 186, 2, 2),
                       //   fontSize: 15,
                       // ),
-                      suffixIcon: Icon(Icons.search, color: Colors.white),
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 18.sp,
+                      ),
                     ),
                   ),
                 ),

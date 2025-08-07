@@ -5,6 +5,7 @@ import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlaceCars extends StatelessWidget {
@@ -26,7 +27,7 @@ class MarketPlaceCars extends StatelessWidget {
                     'MARKETPLACE - CARS',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 2,
                     ),
@@ -38,7 +39,7 @@ class MarketPlaceCars extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 70,
+                height: 50.h,
                 // color: Colors.blue,
                 decoration: BoxDecoration(
                   color: secondaycolor,
@@ -56,7 +57,7 @@ class MarketPlaceCars extends StatelessWidget {
                       'Search for Car',
                       style: GoogleFonts.poppins(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 12.sp,
                       ),
                     ),
                     contentPadding: EdgeInsets.all(20),
@@ -66,7 +67,11 @@ class MarketPlaceCars extends StatelessWidget {
                     // ),
                     suffixIcon: GestureDetector(
                       onTap: () {},
-                      child: Icon(Icons.search, color: Colors.white),
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 15.sp,
+                      ),
                     ),
                   ),
                 ),

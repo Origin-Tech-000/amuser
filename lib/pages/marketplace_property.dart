@@ -6,6 +6,7 @@ import 'package:am/widgets.dart/marketplacepropertywidget.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlaceProperty extends StatelessWidget {
@@ -27,7 +28,7 @@ class MarketPlaceProperty extends StatelessWidget {
                     'MARKETPLACE - PROPERTY',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 2,
                     ),
@@ -39,7 +40,7 @@ class MarketPlaceProperty extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 70,
+                height: 50.h,
                 // color: Colors.blue,
                 decoration: BoxDecoration(
                   color: secondaycolor,
@@ -57,7 +58,7 @@ class MarketPlaceProperty extends StatelessWidget {
                       'Search for Property',
                       style: GoogleFonts.poppins(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 12.sp,
                       ),
                     ),
                     contentPadding: EdgeInsets.all(20),
@@ -67,7 +68,11 @@ class MarketPlaceProperty extends StatelessWidget {
                     // ),
                     suffixIcon: GestureDetector(
                       onTap: () {},
-                      child: Icon(Icons.search, color: Colors.white),
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 14.sp,
+                      ),
                     ),
                   ),
                 ),

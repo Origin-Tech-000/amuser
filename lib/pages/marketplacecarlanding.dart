@@ -4,6 +4,7 @@ import 'package:am/widgets.dart/markertplacecar_imageholder.dart';
 import 'package:am/widgets.dart/primaryad.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlaceCarLanding extends StatelessWidget {
@@ -20,24 +21,29 @@ class MarketPlaceCarLanding extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 15.sp,
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
 
       backgroundColor: primarycolor,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              // SafeArea(child: Logo()),
-              MarketPlaceCarImageHolder(),
-              DetailsCar(),
-              DescriptionCar(),
-              CallButtonCar(),
-            ],
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                // SafeArea(child: Logo()),
+                MarketPlaceCarImageHolder(),
+                DetailsCar(),
+                DescriptionCar(),
+                CallButtonCar(),
+              ],
+            ),
           ),
         ),
       ),
@@ -75,6 +81,7 @@ class DetailsCar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 4),
                       child: Container(
+                        height: 15.h,
                         // color: Colors.red,
                         child: Image.asset('assets/location.png'),
                       ),
@@ -83,7 +90,7 @@ class DetailsCar extends StatelessWidget {
                       'Location',
                       style: GoogleFonts.prompt(
                         color: const Color.fromARGB(182, 255, 255, 255),
-                        fontSize: 14,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -95,43 +102,24 @@ class DetailsCar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'BRAND NAME',
-                      style: GoogleFonts.prompt(
-                        color: fourthcolor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
+                    Expanded(
+                      child: Text(
+                        'BRAND NAME',
+                        style: GoogleFonts.prompt(
+                          color: fourthcolor,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
                       ),
                     ),
-                    Text(
-                      'TRANSMITION',
-                      style: GoogleFonts.prompt(
-                        color: Colors.white,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: [
-                    Text(
-                      'VARIENT',
-                      style: GoogleFonts.prompt(
-                        color: Colors.white,
-                        fontSize: 12,
-                      ),
-                    ),
-                    Text(
-                      'Previous Owners',
-                      style: GoogleFonts.prompt(
-                        color: Colors.white,
-                        fontSize: 12,
+                    Expanded(
+                      child: Text(
+                        'TRANSMITION',
+                        style: GoogleFonts.prompt(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                        ),
                       ),
                     ),
                   ],
@@ -143,18 +131,49 @@ class DetailsCar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                   children: [
-                    Text(
-                      'Seater',
-                      style: GoogleFonts.prompt(
-                        color: Colors.white,
-                        fontSize: 12,
+                    Expanded(
+                      child: Text(
+                        'Varient',
+                        style: GoogleFonts.prompt(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                        ),
                       ),
                     ),
-                    Text(
-                      'Miles',
-                      style: GoogleFonts.prompt(
-                        color: Colors.white,
-                        fontSize: 12,
+                    Expanded(
+                      child: Text(
+                        'Previous Owners',
+                        style: GoogleFonts.prompt(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Seater',
+                        style: GoogleFonts.prompt(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Miles',
+                        style: GoogleFonts.prompt(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                        ),
                       ),
                     ),
                   ],
@@ -171,7 +190,7 @@ class DetailsCar extends StatelessWidget {
                         color: fifth,
                       ),
                       width: MediaQuery.of(context).size.width * .75,
-                      height: 50,
+                      height: 30.h,
                       child: Center(
                         child: Text(
                           'PRICE',
@@ -179,6 +198,7 @@ class DetailsCar extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
+                            fontSize: 13.sp,
                           ),
                         ),
                       ),
@@ -221,8 +241,8 @@ class DescriptionCar extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 2, left: 5),
                     child: Container(
                       // color: Colors.red,
-                      height: 25,
-                      width: 25,
+                      height: 15.h,
+
                       child: Image.asset('assets/details.png'),
                     ),
                   ),
@@ -252,7 +272,7 @@ class CallButtonCar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 2, 20, 5),
+      padding: const EdgeInsets.fromLTRB(20, 2, 20, 20),
       child: Container(
         decoration: BoxDecoration(
           color: thirdcolor,
@@ -277,6 +297,7 @@ class CallButtonCar extends StatelessWidget {
                   style: GoogleFonts.prompt(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    fontSize: 12.sp,
                   ),
                 ),
               ),

@@ -4,6 +4,7 @@ import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchItems extends StatelessWidget {
@@ -51,7 +52,7 @@ class SearchBarItems extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 70,
+        height: 50.sp,
         // color: fifth,
         decoration: BoxDecoration(
           color: fifth,
@@ -73,7 +74,7 @@ class SearchBarItems extends StatelessWidget {
 
             hint: Text(
               'Search in Catogery',
-              style: GoogleFonts.poppins(color: Colors.white),
+              style: GoogleFonts.poppins(color: Colors.white, fontSize: 12.sp),
             ),
             contentPadding: EdgeInsets.all(20),
             // hintStyle: GoogleFonts.poppins(
@@ -89,7 +90,7 @@ class SearchBarItems extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.search, color: Colors.white),
+                  child: Icon(Icons.search, color: Colors.white, size: 14.sp),
                 ),
               ),
             ),
@@ -114,7 +115,8 @@ class SearchItemTile extends StatelessWidget {
           ).push(MaterialPageRoute(builder: (ctx) => ItemLanding()));
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * .23,
+          // height: MediaQuery.of(context).size.height * .23,
+          // height: 500,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: primarycolor,
@@ -135,7 +137,7 @@ class SearchItemTile extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
                   child: Container(
-                    height: MediaQuery.of(context).size.height * .20,
+                    // height: MediaQuery.of(context).size.height * .20,
                     decoration: BoxDecoration(
                       color: thirdcolor,
                       borderRadius: BorderRadius.circular(13),
@@ -152,7 +154,7 @@ class SearchItemTile extends StatelessWidget {
                               color: fourthcolor,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 1,
-                              fontSize: 16,
+                              fontSize: 14.sp,
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -163,7 +165,7 @@ class SearchItemTile extends StatelessWidget {
                               color: const Color.fromARGB(156, 255, 255, 255),
                               fontWeight: FontWeight.w600,
                               letterSpacing: 1,
-                              fontSize: 13,
+                              fontSize: 11.sp,
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -179,8 +181,8 @@ class SearchItemTile extends StatelessWidget {
                                   top: 5,
                                 ),
                                 child: Container(
-                                  width: 25,
-                                  height: 25,
+                                  width: 20.sp,
+                                  height: 20.sp,
                                   decoration: BoxDecoration(
                                     color: fifth, // You can customize the color
                                     shape: BoxShape.circle,
@@ -191,6 +193,7 @@ class SearchItemTile extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 10.sp,
                                     ),
                                   ),
                                 ),
@@ -207,7 +210,7 @@ class SearchItemTile extends StatelessWidget {
                                         'This is a short description about the week or schedule.This is a short description about the week or schedule.This is a short description about the week or schedule. ',
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 9,
+                                      fontSize: 7.sp,
                                     ),
                                   ),
                                   TextSpan(
@@ -216,7 +219,7 @@ class SearchItemTile extends StatelessWidget {
                                     style: GoogleFonts.poppins(
                                       color: fourthcolor,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 9,
+                                      fontSize: 7.sp,
                                     ),
                                   ),
                                 ],
@@ -246,7 +249,7 @@ class SearchItemTile extends StatelessWidget {
                                         Text(
                                           'Call Now',
                                           style: GoogleFonts.prompt(
-                                            fontSize: 9,
+                                            fontSize: 8.sp,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
@@ -279,7 +282,7 @@ class SearchItemTile extends StatelessWidget {
                                         Text(
                                           'Get Direction',
                                           style: GoogleFonts.prompt(
-                                            fontSize: 9,
+                                            fontSize: 8.sp,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),

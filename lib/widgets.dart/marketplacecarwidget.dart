@@ -1,6 +1,7 @@
 import 'package:am/core/colors.dart';
 import 'package:am/pages/marketplacecarlanding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlaceCarWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
           ).push(MaterialPageRoute(builder: (ctx) => MarketPlaceCarLanding()));
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * .23,
+          height: .25.sh,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: secondaycolor,
@@ -50,7 +51,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                             style: GoogleFonts.prompt(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 17,
+                              fontSize: 12.sp,
                               letterSpacing: 1,
                             ),
                           ),
@@ -62,7 +63,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                             style: GoogleFonts.prompt(
                               color: const Color.fromARGB(204, 255, 255, 255),
                               fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              fontSize: 10.sp,
                               letterSpacing: 1,
                             ),
                           ),
@@ -81,7 +82,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                                     255,
                                   ),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 15,
+                                  fontSize: 10.sp,
                                   letterSpacing: 1,
                                 ),
                               ),
@@ -101,7 +102,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                                       255,
                                     ),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    fontSize: 10.sp,
                                     letterSpacing: 1,
                                   ),
                                 ),
@@ -116,7 +117,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                             style: GoogleFonts.prompt(
                               color: const Color.fromARGB(204, 255, 255, 255),
                               fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              fontSize: 10.sp,
                               letterSpacing: 1,
                             ),
                           ),
@@ -128,7 +129,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                             children: [
                               Container(
                                 width: MediaQuery.of(context).size.width * .4,
-                                height: 50,
+                                height: 30.h,
                                 decoration: BoxDecoration(
                                   color: fifth,
                                   borderRadius: BorderRadius.circular(10),
@@ -140,7 +141,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
-                                      fontSize: 18,
+                                      fontSize: 13.sp,
                                     ),
                                   ),
                                 ),
