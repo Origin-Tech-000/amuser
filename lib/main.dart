@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:am/androidsplash.dart';
+import 'package:am/application/category/category_bloc.dart';
+import 'package:am/application/location/location_bloc.dart';
+import 'package:am/domain/core/di/injectable.dart';
 import 'package:am/pages/itemlanding.dart';
 import 'package:am/pages/landing.dart';
 import 'package:am/pages/makertplace_car.dart';
@@ -17,9 +20,12 @@ import 'package:am/pages/selectcountry.dart';
 import 'package:am/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   runApp(const MyApp());
 }
 
@@ -29,13 +35,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'AM',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<LocationBloc>()),
+        BlocProvider(create: (context) => getIt<CategoryBloc>()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'AM',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: ScreenUtilInit(child: CheckPage()),
       ),
-      home: ScreenUtilInit(child: CheckPage()),
     );
   }
 }
