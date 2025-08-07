@@ -12,7 +12,12 @@ class ItemLanding extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios, color: Colors.white),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -152,7 +157,8 @@ class ItemLanding extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                WeekDays(),
+
+                                Expanded(child: WeekDays()),
                               ],
                             ),
                           ),
@@ -350,8 +356,8 @@ class WeekDays extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(right: 4, top: 5),
           child: Container(
-            width: 35,
-            height: 35,
+            width: 30,
+            height: 30,
             decoration: BoxDecoration(
               color: fifth, // You can customize the color
               shape: BoxShape.circle,
