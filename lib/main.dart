@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:am/androidsplash.dart';
+import 'package:am/application/category/category_bloc.dart';
+import 'package:am/application/location/location_bloc.dart';
+import 'package:am/domain/core/di/injectable.dart';
 import 'package:am/pages/itemlanding.dart';
 import 'package:am/pages/landing.dart';
 import 'package:am/pages/makertplace_car.dart';
@@ -17,18 +20,28 @@ import 'package:am/pages/selectcountry.dart';
 import 'package:am/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   runApp(
     ScreenUtilInit(
       designSize: Size(360, 690), // base layout size
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          home: CheckPage(),
-          debugShowCheckedModeBanner: false,
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => getIt<CategoryBloc>()),
+            BlocProvider(create: (context) => getIt<LocationBloc>()),
+          ],
+
+          child: MaterialApp(
+            home: CheckPage(),
+            debugShowCheckedModeBanner: false,
+          ),
         );
       },
     ),
