@@ -1,9 +1,11 @@
+import 'package:am/application/category/category_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/catagory.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchCatagory extends StatelessWidget {
@@ -80,14 +82,23 @@ class SearchCatagory extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1.5 / 1,
-                    ),
-
-                    itemBuilder: (context, i) {
-                      return CatogeryTile();
+                  child: BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, state) {
+                      return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 1.5 / 1,
+                        ),
+                        itemCount: state.cat.length,
+                        itemBuilder: (context, i) {
+                          return CatogeryTile(
+                            catName: state.cat[i].categoryName,
+                            imageUrl: state.cat[i].imageUrl!,
+                            cityName: state.cat[i].cityName,
+                            stateName: state.cat[i].stateName,
+                          );
+                        },
+                      );
                     },
                   ),
                 ),
