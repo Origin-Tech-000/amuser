@@ -1,0 +1,62 @@
+import 'dart:io';
+
+import 'package:am/androidsplash.dart';
+import 'package:am/pages/itemlanding.dart';
+import 'package:am/pages/landing.dart';
+import 'package:am/pages/makertplace_car.dart';
+import 'package:am/pages/markertplace.dart';
+import 'package:am/pages/marketplace_property.dart';
+import 'package:am/pages/marketplacecarlanding.dart';
+import 'package:am/pages/marketplacepropertylanding.dart';
+import 'package:am/pages/newslanding.dart';
+import 'package:am/pages/newslist.dart';
+import 'package:am/pages/searchcatorgery.dart';
+import 'package:am/pages/searchitems.dart';
+import 'package:am/pages/selectcity.dart';
+import 'package:am/pages/selectcountry.dart';
+import 'package:am/test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'AM',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: ScreenUtilInit(child: CheckPage()),
+    );
+  }
+}
+
+class CheckPage extends StatelessWidget {
+  const CheckPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Androidsplash();
+    // return SelectCountry();
+    // return SearchCatagory();
+    // return MarketPlace();
+    // return MarketPlaceProperty();
+    // return MarketPlacePropertyLanding();
+    // return NewsLanding();
+
+    // return SearchItems();
+    // return ItemLanding();
+    // return MarketPlaceCars();
+    // return HomeLanding();
+    // return SelectState();
+  }
+}
