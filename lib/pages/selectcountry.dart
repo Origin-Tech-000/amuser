@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelectCountry extends StatelessWidget {
@@ -35,6 +36,9 @@ class SelectCountry extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       v.value = 0;
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (ctx) => PageHolder()),
+                      );
                     },
                     icon: Icon(
                       Icons.arrow_back_ios_new,

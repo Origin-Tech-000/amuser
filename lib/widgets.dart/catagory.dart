@@ -5,6 +5,7 @@ import 'package:am/pages/searchitems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CatogeryTile extends StatelessWidget {
@@ -66,14 +67,14 @@ class CatogeryTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Text(
                           catName,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.prompt(
                             color: Colors.white,
-                            fontSize: 15.sp,
+                            fontSize: 13.sp,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.w600,
                           ),

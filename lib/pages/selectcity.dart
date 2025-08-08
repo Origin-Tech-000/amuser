@@ -4,6 +4,7 @@ import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final List<String> usStates = [
@@ -289,7 +290,7 @@ class SelectStateKerala extends StatelessWidget {
                             child: Text(
                               'LOCATION',
                               style: GoogleFonts.lora(
-                                fontSize: 18,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
                               ),
@@ -306,7 +307,7 @@ class SelectStateKerala extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             letterSpacing: 1,
                             color: const Color.fromARGB(189, 255, 255, 255),
-                            fontSize: 30,
+                            fontSize: 23.sp,
                             fontWeight: FontWeight.w700,
                           ),
                         ),

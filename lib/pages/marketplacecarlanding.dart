@@ -1,4 +1,5 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/market_place/model/market_place_model.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/markertplacecar_imageholder.dart';
 import 'package:am/widgets.dart/primaryad.dart';
@@ -6,9 +7,11 @@ import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart' as launch_url;
 
 class MarketPlaceCarLanding extends StatelessWidget {
-  const MarketPlaceCarLanding({super.key});
+  final MarketPlaceModel model;
+  const MarketPlaceCarLanding({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +41,10 @@ class MarketPlaceCarLanding extends StatelessWidget {
             child: Column(
               children: [
                 // SafeArea(child: Logo()),
-                MarketPlaceCarImageHolder(),
-                DetailsCar(),
-                DescriptionCar(),
-                CallButtonCar(),
+                MarketPlaceCarImageHolder(images: model.photos!),
+                DetailsCar(m: model),
+                DescriptionCar(description: model.description),
+                CallButtonCar(no: model.phoneNumber),
               ],
             ),
           ),
@@ -52,7 +55,8 @@ class MarketPlaceCarLanding extends StatelessWidget {
 }
 
 class DetailsCar extends StatelessWidget {
-  const DetailsCar({super.key});
+  final MarketPlaceModel m;
+  const DetailsCar({super.key, required this.m});
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +108,7 @@ class DetailsCar extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'BRAND NAME',
+                        m.name,
                         style: GoogleFonts.prompt(
                           color: fourthcolor,
                           fontSize: 13.sp,
@@ -115,7 +119,7 @@ class DetailsCar extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        'TRANSMITION',
+                        m.transmission ?? '',
                         style: GoogleFonts.prompt(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -133,7 +137,7 @@ class DetailsCar extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Varient',
+                        m.carModel ?? '',
                         style: GoogleFonts.prompt(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -142,7 +146,7 @@ class DetailsCar extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        'Previous Owners',
+                        m.noOfOwners ?? '',
                         style: GoogleFonts.prompt(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -160,7 +164,7 @@ class DetailsCar extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Seater',
+                        m.noOfSeats ?? '',
                         style: GoogleFonts.prompt(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -169,7 +173,7 @@ class DetailsCar extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        'Miles',
+                        m.distanceCovered ?? '',
                         style: GoogleFonts.prompt(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -193,7 +197,7 @@ class DetailsCar extends StatelessWidget {
                       height: 30.h,
                       child: Center(
                         child: Text(
-                          'PRICE',
+                          m.price,
                           style: GoogleFonts.prompt(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -215,7 +219,8 @@ class DetailsCar extends StatelessWidget {
 }
 
 class DescriptionCar extends StatelessWidget {
-  const DescriptionCar({super.key});
+  final String description;
+  const DescriptionCar({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +254,7 @@ class DescriptionCar extends StatelessWidget {
                   SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      '''2020 BMW M3 Coupe single owner well maintained always garage kept showroom condition fully loaded with M Performance package powerful 3.0L twin-turbo engine smooth automatic transmission paddle shifters premium Harman Kardon sound system leather sports seats heated and ventilated heads-up display carbon fiber interior trim sunroof reverse camera parking sensors 19-inch M Sport alloys new tyres and brakes full service history available no accidents or issues insurance and paperwork up to date non-smoker driven reason for sale upgrading to a new car serious buyers only price slightly negotiable location based in Houston contact for more details or test drive''',
+                      '''$description''',
                       style: GoogleFonts.poppins(
                         fontSize: 10,
                         color: Colors.white,
@@ -267,7 +272,8 @@ class DescriptionCar extends StatelessWidget {
 }
 
 class CallButtonCar extends StatelessWidget {
-  const CallButtonCar({super.key});
+  final String no;
+  const CallButtonCar({super.key, required this.no});
 
   @override
   Widget build(BuildContext context) {
@@ -282,22 +288,28 @@ class CallButtonCar extends StatelessWidget {
           ),
         ),
         // width: MediaQuery.of(context).size.width,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: fifth,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  'Call Now',
-                  style: GoogleFonts.prompt(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.sp,
+        child: GestureDetector(
+          onTap: () async {
+            Uri uri = Uri(scheme: 'tel', path: no);
+            await launch_url.launchUrl(uri);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: fifth,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    'Call Now',
+                    style: GoogleFonts.prompt(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12.sp,
+                    ),
                   ),
                 ),
               ),

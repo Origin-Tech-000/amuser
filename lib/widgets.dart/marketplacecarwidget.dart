@@ -1,11 +1,13 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/market_place/model/market_place_model.dart';
 import 'package:am/pages/marketplacecarlanding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlaceCarWidget extends StatelessWidget {
-  const MarketPlaceCarWidget({super.key});
+  final MarketPlaceModel model;
+  const MarketPlaceCarWidget({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,11 @@ class MarketPlaceCarWidget extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 6, 20, 6),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (ctx) => MarketPlaceCarLanding()));
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (ctx) => MarketPlaceCarLanding(model: model),
+            ),
+          );
         },
         child: Container(
           height: .25.sh,
@@ -47,7 +51,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(4),
                           child: Text(
-                            'BRANDNAME',
+                            model.name,
                             style: GoogleFonts.prompt(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -59,7 +63,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(4),
                           child: Text(
-                            'Model',
+                            model.carModel ?? '',
                             style: GoogleFonts.prompt(
                               color: const Color.fromARGB(204, 255, 255, 255),
                               fontWeight: FontWeight.bold,
@@ -73,7 +77,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(4),
                               child: Text(
-                                '2 Seater',
+                                '${model.noOfSeats} Seater',
                                 style: GoogleFonts.prompt(
                                   color: const Color.fromARGB(
                                     204,
@@ -91,7 +95,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(4),
                                 child: Text(
-                                  '20000 Miles',
+                                  '${model.distanceCovered} Miles',
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: GoogleFonts.prompt(
@@ -113,7 +117,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(4),
                           child: Text(
-                            'Automatic',
+                            model.transmission ?? '',
                             style: GoogleFonts.prompt(
                               color: const Color.fromARGB(204, 255, 255, 255),
                               fontWeight: FontWeight.bold,
@@ -136,7 +140,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    'Price',
+                                    model.price,
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -163,7 +167,7 @@ class MarketPlaceCarWidget extends StatelessWidget {
                   ),
                   child: Container(
                     color: Colors.white,
-                    // child: Image.asset('name'),
+                    child: Image.network(model.photos?[0] ?? ''),
                   ),
                 ),
               ),

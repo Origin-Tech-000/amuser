@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:am/application/category/category_bloc.dart';
+import 'package:am/application/news_and_ads/news_and_ads_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/domain/location/model/location_model.dart';
 import 'package:am/pages/newslanding.dart';
 import 'package:am/pages/newslist.dart';
 import 'package:am/pages/pageholder.dart';
+import 'package:am/pages/selectcity.dart';
 import 'package:am/pages/selectcountry.dart';
 import 'package:am/widgets.dart/primaryad.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
@@ -12,6 +16,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeLanding extends StatelessWidget {
@@ -89,7 +94,6 @@ class HomeLanding extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     Padding(
                       /////// Primary Ad//////////////
                       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -98,36 +102,47 @@ class HomeLanding extends StatelessWidget {
                         // height : MediaQuery.of(context).size.height*.13,
                         // color: const Color.fromARGB(255, 232, 223, 196),
                         width: MediaQuery.of(context).size.width * 1,
-                        child: CarouselSlider(
-                          options: CarouselOptions(
-                            autoPlay: true,
-                            enlargeCenterPage: true,
-                            viewportFraction: 1.0,
-                            height: 0.2.sh,
-                          ),
-                          items: [1, 2, 3, 4, 5].map((i) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
-                                  width: MediaQuery.of(context).size.width * 1,
-                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: thirdcolor,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Primary Ads $i',
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.white,
+                        child: BlocBuilder<NewsAndAdsBloc, NewsAndAdsState>(
+                          builder: (context, state) {
+                            log(state.ads.toString());
+                            return CarouselSlider(
+                              options: CarouselOptions(
+                                autoPlay: true,
+                                enlargeCenterPage: true,
+                                viewportFraction: 1.0,
+                                height: 0.2.sh,
+                              ),
+                              items: state.ads.map((i) {
+                                return Builder(
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      width:
+                                          MediaQuery.of(context).size.width * 1,
+                                      margin: EdgeInsets.symmetric(
+                                        horizontal: 5.0,
                                       ),
-                                    ),
-                                  ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: thirdcolor,
+                                      ),
+                                      child: Center(
+                                        child: Image.network(i.imageUrl ?? ''),
+                                      ),
+                                      // child: Center(
+                                      //   child: Text(
+                                      //     'Primary Ads ',
+                                      //     style: TextStyle(
+                                      //       fontSize: 16.0,
+                                      //       color: Colors.white,
+                                      //     ),
+                                      //   ),
+                                      // ),
+                                    );
+                                  },
                                 );
-                              },
+                              }).toList(),
                             );
-                          }).toList(),
+                          },
                         ),
                       ),
                     ),
@@ -144,39 +159,51 @@ class HomeLanding extends StatelessWidget {
                           // height : MediaQuery.of(context).size.height*.13,
                           // color: const Color.fromARGB(255, 232, 223, 196),
                           width: MediaQuery.of(context).size.width * 1,
-                          child: CarouselSlider(
-                            options: CarouselOptions(
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              viewportFraction: 1.0,
-                              height: 100.h,
-                            ),
-                            items: [1, 2, 3, 4, 5].map((i) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 1,
-                                    margin: EdgeInsets.symmetric(
-                                      horizontal: 5.0,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: thirdcolor,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Local Updates $i',
-                                        style: TextStyle(
-                                          fontSize: 16.0,
-                                          color: Colors.white,
+                          child: BlocBuilder<NewsAndAdsBloc, NewsAndAdsState>(
+                            builder: (context, state) {
+                              return CarouselSlider(
+                                options: CarouselOptions(
+                                  autoPlay: true,
+                                  enlargeCenterPage: true,
+                                  viewportFraction: 1.0,
+                                  height: 100.h,
+                                ),
+                                items: state.news.map((i) {
+                                  return Builder(
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                            1,
+                                        margin: EdgeInsets.symmetric(
+                                          horizontal: 5.0,
                                         ),
-                                      ),
-                                    ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            20,
+                                          ),
+                                          color: thirdcolor,
+                                        ),
+                                        child: Center(
+                                          child: Image.network(
+                                            i.imageUrl ?? '',
+                                          ),
+                                        ),
+                                        // child: Center(
+                                        //   child: Text(
+                                        //     'Local Updates $i',
+                                        //     style: TextStyle(
+                                        //       fontSize: 16.0,
+                                        //       color: Colors.white,
+                                        //     ),
+                                        //   ),
+                                        // ),
+                                      );
+                                    },
                                   );
-                                },
+                                }).toList(),
                               );
-                            }).toList(),
+                            },
                           ),
                         ),
                       ),
@@ -207,7 +234,7 @@ class HomeLanding extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (ctx) => SelectCountry(),
+                                    builder: (ctx) => SelectStateKerala(),
                                   ),
                                 );
                               },

@@ -1,3 +1,4 @@
+import 'package:am/application/market_place/market_place_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/widgets.dart/marketplacecarwidget.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
@@ -6,6 +7,7 @@ import 'package:am/widgets.dart/marketplacepropertywidget.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -52,6 +54,10 @@ class MarketPlaceProperty extends StatelessWidget {
                 // ),
                 // ),
                 child: TextFormField(
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 12.sp,
+                  ),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hint: Text(
@@ -81,9 +87,14 @@ class MarketPlaceProperty extends StatelessWidget {
             SizedBox(height: 10),
 
             Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, i) {
-                  return MarketPlacePropertyWidget();
+              child: BlocBuilder<MarketPlaceBloc, MarketPlaceState>(
+                builder: (context, state) {
+                  return ListView.builder(
+                    itemCount: state.items.length,
+                    itemBuilder: (context, i) {
+                      return MarketPlacePropertyWidget(model: state.items[i]);
+                    },
+                  );
                 },
               ),
             ),

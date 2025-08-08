@@ -8,3 +8,4 @@ final Color fourthcolor = Color(0xffE99275);
 final Color primeCatogeryBox = Color(0xff05183A);
 final Color secCatogeryBox = Color(0xff0F244A);
 final Color fifth = Color(0xff643AD6);
+final Color six = Color(0xff6A79F9);

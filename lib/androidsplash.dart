@@ -1,7 +1,7 @@
-import 'package:am/pages/landing.dart';
+import 'package:am/application/news_and_ads/news_and_ads_bloc.dart';
 import 'package:am/pages/pageholder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Androidsplash extends StatefulWidget {
@@ -15,6 +15,7 @@ class _AndroidsplashState extends State<Androidsplash> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(Duration(seconds: 2), () {
       Navigator.of(
         context,
@@ -24,6 +25,12 @@ class _AndroidsplashState extends State<Androidsplash> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<NewsAndAdsBloc>().add(
+      NewsAndAdsEvent.loadNews(cityName: "houston", stateName: "texas"),
+    );
+    context.read<NewsAndAdsBloc>().add(
+      NewsAndAdsEvent.loadAds(cityName: "houston", stateName: "texas"),
+    );
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
