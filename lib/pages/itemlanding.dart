@@ -39,7 +39,7 @@ class ItemLanding extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: ItemImageHolder(),
+                  child: ItemImageHolder(images: model.imageUrl!),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),

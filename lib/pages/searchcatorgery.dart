@@ -89,7 +89,7 @@ class SearchCatagory extends StatelessWidget {
                           crossAxisCount: 2,
                           childAspectRatio: 1.5 / 1,
                         ),
-
+                        itemCount: state.cat.length,
                         itemBuilder: (context, i) {
                           return CatogeryTile(
                             catName: state.cat[i].categoryName,

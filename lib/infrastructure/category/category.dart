@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:am/domain/category/category_item/category_item_model.dart';
 import 'package:am/domain/category/i_category.dart';
@@ -42,10 +43,12 @@ class Category implements ICategory {
       final Response r = await Dio(
         BaseOptions(baseUrl: ApiEndPoints.baseUrl),
       ).get(ApiEndPoints.getCatItems, data: jsonEncode(model));
+      log(r.data.toString());
       if (r.statusCode == 200 || r.statusCode == 201) {
         final List<CategoryItemModel> catItem = (r.data['docs'] as List).map((
           e,
         ) {
+          log(e.toString());
           return CategoryItemModel.fromJson(e);
         }).toList();
         return Right(catItem);
@@ -53,6 +56,7 @@ class Category implements ICategory {
         return Left(Failures.getCategoryItemsSeverError());
       }
     } catch (e) {
+      log(e.toString());
       return Left(Failures.getCategoryItemsFailure());
     }
   }

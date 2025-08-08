@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:am/domain/category/category_item/category_item_model.dart';
 import 'package:am/domain/category/i_category.dart';
 import 'package:am/domain/category/model/category_model.dart';
@@ -25,8 +27,9 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       );
     });
     on<_LoadCategoriesItems>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(isLoading: true, catItems: []));
       final data = await cat.getCategoryItems(model: event.model);
+      log(data.toString());
       return emit(
         data.fold(
           (l) => state.copyWith(isLoading: false, catItems: []),

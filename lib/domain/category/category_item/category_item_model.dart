@@ -18,7 +18,7 @@ sealed class CategoryItemModel with _$CategoryItemModel {
     String? cityName,
     String? stateName,
     String? logoUrl,
-    String? imageUrl,
+    List<String>? imageUrl,
   }) = _CategoryItemModel;
 
   factory CategoryItemModel.fromJson(Map<String, dynamic> json) =>

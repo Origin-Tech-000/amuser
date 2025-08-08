@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CategoryItemModel {
 
- String get shopName; String get moto; String get address; String get description; String get contactNumber; String get email; String get location; String get timeOpening; String get timeClosing; String? get categoryName; String? get cityName; String? get stateName; String? get logoUrl; String? get imageUrl;
+ String get shopName; String get moto; String get address; String get description; String get contactNumber; String get email; String get location; String get timeOpening; String get timeClosing; String? get categoryName; String? get cityName; String? get stateName; String? get logoUrl; List<String>? get imageUrl;
 /// Create a copy of CategoryItemModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,12 +28,12 @@ $CategoryItemModelCopyWith<CategoryItemModel> get copyWith => _$CategoryItemMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CategoryItemModel&&(identical(other.shopName, shopName) || other.shopName == shopName)&&(identical(other.moto, moto) || other.moto == moto)&&(identical(other.address, address) || other.address == address)&&(identical(other.description, description) || other.description == description)&&(identical(other.contactNumber, contactNumber) || other.contactNumber == contactNumber)&&(identical(other.email, email) || other.email == email)&&(identical(other.location, location) || other.location == location)&&(identical(other.timeOpening, timeOpening) || other.timeOpening == timeOpening)&&(identical(other.timeClosing, timeClosing) || other.timeClosing == timeClosing)&&(identical(other.categoryName, categoryName) || other.categoryName == categoryName)&&(identical(other.cityName, cityName) || other.cityName == cityName)&&(identical(other.stateName, stateName) || other.stateName == stateName)&&(identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CategoryItemModel&&(identical(other.shopName, shopName) || other.shopName == shopName)&&(identical(other.moto, moto) || other.moto == moto)&&(identical(other.address, address) || other.address == address)&&(identical(other.description, description) || other.description == description)&&(identical(other.contactNumber, contactNumber) || other.contactNumber == contactNumber)&&(identical(other.email, email) || other.email == email)&&(identical(other.location, location) || other.location == location)&&(identical(other.timeOpening, timeOpening) || other.timeOpening == timeOpening)&&(identical(other.timeClosing, timeClosing) || other.timeClosing == timeClosing)&&(identical(other.categoryName, categoryName) || other.categoryName == categoryName)&&(identical(other.cityName, cityName) || other.cityName == cityName)&&(identical(other.stateName, stateName) || other.stateName == stateName)&&(identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl)&&const DeepCollectionEquality().equals(other.imageUrl, imageUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,shopName,moto,address,description,contactNumber,email,location,timeOpening,timeClosing,categoryName,cityName,stateName,logoUrl,imageUrl);
+int get hashCode => Object.hash(runtimeType,shopName,moto,address,description,contactNumber,email,location,timeOpening,timeClosing,categoryName,cityName,stateName,logoUrl,const DeepCollectionEquality().hash(imageUrl));
 
 @override
 String toString() {
@@ -48,7 +48,7 @@ abstract mixin class $CategoryItemModelCopyWith<$Res>  {
   factory $CategoryItemModelCopyWith(CategoryItemModel value, $Res Function(CategoryItemModel) _then) = _$CategoryItemModelCopyWithImpl;
 @useResult
 $Res call({
- String shopName, String moto, String address, String description, String contactNumber, String email, String location, String timeOpening, String timeClosing, String? categoryName, String? cityName, String? stateName, String? logoUrl, String? imageUrl
+ String shopName, String moto, String address, String description, String contactNumber, String email, String location, String timeOpening, String timeClosing, String? categoryName, String? cityName, String? stateName, String? logoUrl, List<String>? imageUrl
 });
 
 
@@ -81,7 +81,7 @@ as String?,cityName: freezed == cityName ? _self.cityName : cityName // ignore: 
 as String?,stateName: freezed == stateName ? _self.stateName : stateName // ignore: cast_nullable_to_non_nullable
 as String?,logoUrl: freezed == logoUrl ? _self.logoUrl : logoUrl // ignore: cast_nullable_to_non_nullable
 as String?,imageUrl: freezed == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
-as String?,
+as List<String>?,
   ));
 }
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  String? imageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  List<String>? imageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CategoryItemModel() when $default != null:
 return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.contactNumber,_that.email,_that.location,_that.timeOpening,_that.timeClosing,_that.categoryName,_that.cityName,_that.stateName,_that.logoUrl,_that.imageUrl);case _:
@@ -184,7 +184,7 @@ return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  String? imageUrl)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  List<String>? imageUrl)  $default,) {final _that = this;
 switch (_that) {
 case _CategoryItemModel():
 return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.contactNumber,_that.email,_that.location,_that.timeOpening,_that.timeClosing,_that.categoryName,_that.cityName,_that.stateName,_that.logoUrl,_that.imageUrl);}
@@ -201,7 +201,7 @@ return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  String? imageUrl)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String shopName,  String moto,  String address,  String description,  String contactNumber,  String email,  String location,  String timeOpening,  String timeClosing,  String? categoryName,  String? cityName,  String? stateName,  String? logoUrl,  List<String>? imageUrl)?  $default,) {final _that = this;
 switch (_that) {
 case _CategoryItemModel() when $default != null:
 return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.contactNumber,_that.email,_that.location,_that.timeOpening,_that.timeClosing,_that.categoryName,_that.cityName,_that.stateName,_that.logoUrl,_that.imageUrl);case _:
@@ -216,7 +216,7 @@ return $default(_that.shopName,_that.moto,_that.address,_that.description,_that.
 @JsonSerializable()
 
 class _CategoryItemModel implements CategoryItemModel {
-  const _CategoryItemModel({required this.shopName, required this.moto, required this.address, required this.description, required this.contactNumber, required this.email, required this.location, required this.timeOpening, required this.timeClosing, this.categoryName, this.cityName, this.stateName, this.logoUrl, this.imageUrl});
+  const _CategoryItemModel({required this.shopName, required this.moto, required this.address, required this.description, required this.contactNumber, required this.email, required this.location, required this.timeOpening, required this.timeClosing, this.categoryName, this.cityName, this.stateName, this.logoUrl, final  List<String>? imageUrl}): _imageUrl = imageUrl;
   factory _CategoryItemModel.fromJson(Map<String, dynamic> json) => _$CategoryItemModelFromJson(json);
 
 @override final  String shopName;
@@ -232,7 +232,15 @@ class _CategoryItemModel implements CategoryItemModel {
 @override final  String? cityName;
 @override final  String? stateName;
 @override final  String? logoUrl;
-@override final  String? imageUrl;
+ final  List<String>? _imageUrl;
+@override List<String>? get imageUrl {
+  final value = _imageUrl;
+  if (value == null) return null;
+  if (_imageUrl is EqualUnmodifiableListView) return _imageUrl;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
 
 /// Create a copy of CategoryItemModel
 /// with the given fields replaced by the non-null parameter values.
@@ -247,12 +255,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CategoryItemModel&&(identical(other.shopName, shopName) || other.shopName == shopName)&&(identical(other.moto, moto) || other.moto == moto)&&(identical(other.address, address) || other.address == address)&&(identical(other.description, description) || other.description == description)&&(identical(other.contactNumber, contactNumber) || other.contactNumber == contactNumber)&&(identical(other.email, email) || other.email == email)&&(identical(other.location, location) || other.location == location)&&(identical(other.timeOpening, timeOpening) || other.timeOpening == timeOpening)&&(identical(other.timeClosing, timeClosing) || other.timeClosing == timeClosing)&&(identical(other.categoryName, categoryName) || other.categoryName == categoryName)&&(identical(other.cityName, cityName) || other.cityName == cityName)&&(identical(other.stateName, stateName) || other.stateName == stateName)&&(identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CategoryItemModel&&(identical(other.shopName, shopName) || other.shopName == shopName)&&(identical(other.moto, moto) || other.moto == moto)&&(identical(other.address, address) || other.address == address)&&(identical(other.description, description) || other.description == description)&&(identical(other.contactNumber, contactNumber) || other.contactNumber == contactNumber)&&(identical(other.email, email) || other.email == email)&&(identical(other.location, location) || other.location == location)&&(identical(other.timeOpening, timeOpening) || other.timeOpening == timeOpening)&&(identical(other.timeClosing, timeClosing) || other.timeClosing == timeClosing)&&(identical(other.categoryName, categoryName) || other.categoryName == categoryName)&&(identical(other.cityName, cityName) || other.cityName == cityName)&&(identical(other.stateName, stateName) || other.stateName == stateName)&&(identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl)&&const DeepCollectionEquality().equals(other._imageUrl, _imageUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,shopName,moto,address,description,contactNumber,email,location,timeOpening,timeClosing,categoryName,cityName,stateName,logoUrl,imageUrl);
+int get hashCode => Object.hash(runtimeType,shopName,moto,address,description,contactNumber,email,location,timeOpening,timeClosing,categoryName,cityName,stateName,logoUrl,const DeepCollectionEquality().hash(_imageUrl));
 
 @override
 String toString() {
@@ -267,7 +275,7 @@ abstract mixin class _$CategoryItemModelCopyWith<$Res> implements $CategoryItemM
   factory _$CategoryItemModelCopyWith(_CategoryItemModel value, $Res Function(_CategoryItemModel) _then) = __$CategoryItemModelCopyWithImpl;
 @override @useResult
 $Res call({
- String shopName, String moto, String address, String description, String contactNumber, String email, String location, String timeOpening, String timeClosing, String? categoryName, String? cityName, String? stateName, String? logoUrl, String? imageUrl
+ String shopName, String moto, String address, String description, String contactNumber, String email, String location, String timeOpening, String timeClosing, String? categoryName, String? cityName, String? stateName, String? logoUrl, List<String>? imageUrl
 });
 
 
@@ -299,8 +307,8 @@ as String,categoryName: freezed == categoryName ? _self.categoryName : categoryN
 as String?,cityName: freezed == cityName ? _self.cityName : cityName // ignore: cast_nullable_to_non_nullable
 as String?,stateName: freezed == stateName ? _self.stateName : stateName // ignore: cast_nullable_to_non_nullable
 as String?,logoUrl: freezed == logoUrl ? _self.logoUrl : logoUrl // ignore: cast_nullable_to_non_nullable
-as String?,imageUrl: freezed == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,imageUrl: freezed == imageUrl ? _self._imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
+as List<String>?,
   ));
 }
 

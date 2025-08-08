@@ -3,7 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ItemImageHolder extends StatelessWidget {
-  const ItemImageHolder({super.key});
+  final List<String> images;
+  const ItemImageHolder({super.key, required this.images});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ItemImageHolder extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .4,
           viewportFraction: 1.0,
         ),
-        items: [1, 2, 3, 4, 5].map((i) {
+        items: images.map((i) {
           return Builder(
             builder: (BuildContext context) {
               return ClipRRect(
@@ -32,12 +33,7 @@ class ItemImageHolder extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 1,
                   // margin: EdgeInsets.symmetric(horizontal: 1),
                   decoration: BoxDecoration(color: Colors.green),
-                  child: Center(
-                    child: Text(
-                      'Item Image $i',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                  ),
+                  child: Center(child: Image.network(i)),
                 ),
               );
             },

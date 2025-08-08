@@ -21,7 +21,9 @@ _CategoryItemModel _$CategoryItemModelFromJson(Map<String, dynamic> json) =>
       cityName: json['cityName'] as String?,
       stateName: json['stateName'] as String?,
       logoUrl: json['logoUrl'] as String?,
-      imageUrl: json['imageUrl'] as String?,
+      imageUrl: (json['imageUrl'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$CategoryItemModelToJson(_CategoryItemModel instance) =>
