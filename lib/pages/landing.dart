@@ -2,6 +2,7 @@ import 'package:am/core/colors.dart';
 import 'package:am/pages/newslanding.dart';
 import 'package:am/pages/newslist.dart';
 import 'package:am/pages/pageholder.dart';
+import 'package:am/pages/selectcity.dart';
 import 'package:am/pages/selectcountry.dart';
 import 'package:am/widgets.dart/primaryad.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
@@ -81,7 +82,6 @@ class HomeLanding extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     Padding(
                       /////// Primary Ad//////////////
                       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -199,7 +199,7 @@ class HomeLanding extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (ctx) => SelectCountry(),
+                                    builder: (ctx) => SelectStateKerala(),
                                   ),
                                 );
                               },

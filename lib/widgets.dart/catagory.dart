@@ -44,14 +44,14 @@ class CatogeryTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Text(
-                          'NAMEdnsncdondionsionco',
+                          'CATOGERY NAME',
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.prompt(
                             color: Colors.white,
-                            fontSize: 15.sp,
+                            fontSize: 13.sp,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.w600,
                           ),

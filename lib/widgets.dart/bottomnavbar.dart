@@ -1,3 +1,4 @@
+import 'package:am/core/colors.dart';
 import 'package:am/pages/pageholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class BottomNavBar extends StatelessWidget {
           stops: [0, 0.47, 1],
         ),
       ),
-      height: 0.1.sh,
+      height: 0.092.sh,
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Row(
@@ -32,100 +33,148 @@ class BottomNavBar extends StatelessWidget {
               onTap: () {
                 v.value = 0;
               },
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      height: 15.sp,
-                      width: 15.sp,
-                      child: Image.asset('assets/1.png'),
+              child: Container(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 15.sp,
+                        width: 15.sp,
+                        child: Image.asset('assets/1.png'),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Home',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12.sp,
+                    Text(
+                      'Home',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                      ),
                     ),
-                  ),
-                ],
+                    v.value == 0
+                        ? Padding(
+                            padding: const EdgeInsets.all(3),
+                            child: Container(
+                              width: 15.sp,
+                              height: 2,
+                              color: fourthcolor,
+                            ),
+                          )
+                        : SizedBox(width: 0),
+                  ],
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {
                 v.value = 1;
               },
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      height: 15.sp,
-                      width: 15.sp,
-                      child: Image.asset('assets/2.png'),
+              child: Container(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 15.sp,
+                        width: 15.sp,
+                        child: Image.asset('assets/2.png'),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Search',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12.sp,
+                    Text(
+                      'Search',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                      ),
                     ),
-                  ),
-                ],
+                    v.value == 1
+                        ? Padding(
+                            padding: const EdgeInsets.all(3),
+                            child: Container(
+                              width: 15.sp,
+                              height: 2,
+                              color: fourthcolor,
+                            ),
+                          )
+                        : SizedBox(width: 0),
+                  ],
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {
                 v.value = 2;
               },
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      height: 15.sp,
-                      width: 15.sp,
-                      child: Image.asset('assets/3.png'),
+              child: Container(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 15.sp,
+                        width: 15.sp,
+                        child: Image.asset('assets/3.png'),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Shop',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12.sp,
+                    Text(
+                      'Shop',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                      ),
                     ),
-                  ),
-                ],
+                    v.value == 2
+                        ? Padding(
+                            padding: const EdgeInsets.all(3),
+                            child: Container(
+                              width: 15.sp,
+                              height: 2,
+                              color: fourthcolor,
+                            ),
+                          )
+                        : SizedBox(width: 0),
+                  ],
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {
                 v.value = 3;
               },
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Container(
-                      height: 15.sp,
-                      width: 15.sp,
-                      child: Image.asset('assets/3.png'),
+              child: Container(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 15.sp,
+                        width: 15.sp,
+                        child: Image.asset('assets/3.png'),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Locations',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12.sp,
+                    Text(
+                      'Locations',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                      ),
                     ),
-                  ),
-                ],
+                    v.value == 3
+                        ? Padding(
+                            padding: const EdgeInsets.all(3),
+                            child: Container(
+                              width: 15.sp,
+                              height: 2,
+                              color: fourthcolor,
+                            ),
+                          )
+                        : SizedBox(width: 0),
+                  ],
+                ),
               ),
             ),
           ],
