@@ -1,12 +1,15 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/category/category_item/category_item_model.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/itemimageholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart' as launch_url;
 
 class ItemLanding extends StatelessWidget {
-  const ItemLanding({super.key});
+  final CategoryItemModel model;
+  const ItemLanding({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +108,7 @@ class ItemLanding extends StatelessWidget {
                                     padding: EdgeInsets.fromLTRB(0, 5, 5, 2.h),
 
                                     child: Text(
-                                      'HOSUTON HOSPITAL',
+                                      model.shopName,
                                       style: GoogleFonts.prompt(
                                         color: fourthcolor,
                                         fontWeight: FontWeight.w600,
@@ -125,7 +128,7 @@ class ItemLanding extends StatelessWidget {
                                     ),
 
                                     child: Text(
-                                      'TIME 10:00AM - 09:00AM',
+                                      'TIME ${model.timeOpening} AM - ${model.timeClosing} PM',
                                       style: GoogleFonts.prompt(
                                         color: const Color.fromARGB(
                                           156,
@@ -144,7 +147,7 @@ class ItemLanding extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.fromLTRB(0, 5, 5, 2.h),
                                     child: Text(
-                                      '"MOTO"',
+                                      "'${model.moto}'",
                                       style: GoogleFonts.prompt(
                                         color: const Color.fromARGB(
                                           170,
@@ -173,7 +176,7 @@ class ItemLanding extends StatelessWidget {
                                     right: 10,
                                   ),
                                   child: Container(
-                                    child: Image.asset('assets/sample.png'),
+                                    child: Image.network(model.logoUrl!),
                                   ),
                                 ),
                               ],
@@ -197,7 +200,7 @@ class ItemLanding extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Text(
-                            '6565 Fannin St, Houston, TX 77030, United States',
+                            model.address,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.bold,
                               fontSize: 13.sp,
@@ -233,7 +236,7 @@ class ItemLanding extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text(
-                              '''Located in the heart of the Texas Medical Center, Houston Methodist Hospital is a nationally recognized leader in healthcare, known for its clinical excellence, advanced medical research, and compassionate patient care. Consistently ranked among the top hospitals in the U.S., it offers cutting-edge treatments across a wide range of specialties, including cardiology, neurology, oncology, and orthopedics. With a commitment to innovation and personalized treatment, Houston Methodist delivers world-class care in a state-of-the-art environment where patients always come first.''',
+                              '''${model.description}''',
                               style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 10,
@@ -261,7 +264,10 @@ class ItemLanding extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(7),
-                          child: Buttons(),
+                          child: Buttons(
+                            contactNumber: model.contactNumber,
+                            location: model.location,
+                          ),
                         ),
                       ],
                     ),
@@ -277,7 +283,13 @@ class ItemLanding extends StatelessWidget {
 }
 
 class Buttons extends StatelessWidget {
-  const Buttons({super.key});
+  final String contactNumber;
+  final String location;
+  const Buttons({
+    super.key,
+    required this.contactNumber,
+    required this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -286,61 +298,73 @@ class Buttons extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            height: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: fifth,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-              child: Row(
-                children: [
-                  Text(
-                    'Call Now',
-                    style: GoogleFonts.prompt(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+          GestureDetector(
+            onTap: () async {
+              Uri uri = Uri(scheme: 'tel', path: contactNumber);
+              await launch_url.launchUrl(uri);
+            },
+            child: Container(
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: fifth,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+                child: Row(
+                  children: [
+                    Text(
+                      'Call Now',
+                      style: GoogleFonts.prompt(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 4),
-                  Container(
-                    // color: Colors.red,
-                    height: 25,
-                    width: 25,
-                    child: Image.asset('assets/call.png'),
-                  ),
-                ],
+                    SizedBox(width: 4),
+                    Container(
+                      // color: Colors.red,
+                      height: 25,
+                      width: 25,
+                      child: Image.asset('assets/call.png'),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           SizedBox(width: 30),
-          Container(
-            height: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: fifth,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-              child: Row(
-                children: [
-                  Text(
-                    'Get Direction',
-                    style: GoogleFonts.prompt(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+          GestureDetector(
+            onTap: () async {
+              Uri uri = Uri.parse(location);
+              await launch_url.launchUrl(uri);
+            },
+            child: Container(
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: fifth,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+                child: Row(
+                  children: [
+                    Text(
+                      'Get Direction',
+                      style: GoogleFonts.prompt(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 4),
-                  SizedBox(
-                    height: 15,
-                    width: 15,
-                    child: Image.asset('assets/direction.png'),
-                  ),
-                ],
+                    SizedBox(width: 4),
+                    SizedBox(
+                      height: 15,
+                      width: 15,
+                      child: Image.asset('assets/direction.png'),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

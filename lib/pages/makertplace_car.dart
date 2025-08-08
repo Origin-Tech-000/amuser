@@ -51,6 +51,10 @@ class MarketPlaceCars extends StatelessWidget {
                 // ),
                 // ),
                 child: TextFormField(
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 12.sp,
+                  ),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hint: Text(

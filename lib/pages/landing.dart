@@ -1,4 +1,6 @@
+import 'package:am/application/category/category_bloc.dart';
 import 'package:am/core/colors.dart';
+import 'package:am/domain/location/model/location_model.dart';
 import 'package:am/pages/newslanding.dart';
 import 'package:am/pages/newslist.dart';
 import 'package:am/pages/pageholder.dart';
@@ -9,6 +11,7 @@ import 'package:am/widgets.dart/bottomnavbar.dart';
 import 'package:am/widgets.dart/catagory.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,6 +20,11 @@ class HomeLanding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<CategoryBloc>().add(
+      CategoryEvent.loadCategories(
+        model: LocationModel(cityName: 'Houston', stateName: 'Texas'),
+      ),
+    );
     return Scaffold(
       // backgroundColor:,
       bottomNavigationBar: BottomNavBar(),
@@ -244,15 +252,27 @@ class HomeLanding extends StatelessWidget {
 
                     // )),
                     Expanded(
-                      child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.5 / 1,
-                        ),
-                        itemCount: 4,
+                      child: BlocBuilder<CategoryBloc, CategoryState>(
+                        builder: (context, state) {
+                          return GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 1.5 / 1,
+                                ),
+                            itemCount: state.cat.length < 4
+                                ? state.cat.length
+                                : 4,
 
-                        itemBuilder: (context, i) {
-                          return CatogeryTile();
+                            itemBuilder: (context, i) {
+                              return CatogeryTile(
+                                catName: state.cat[i].categoryName,
+                                imageUrl: state.cat[i].imageUrl!,
+                                cityName: state.cat[i].cityName,
+                                stateName: state.cat[i].stateName,
+                              );
+                            },
+                          );
                         },
                       ),
                     ),

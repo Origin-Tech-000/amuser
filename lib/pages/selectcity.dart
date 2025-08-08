@@ -1,6 +1,8 @@
+import 'package:am/application/location/location_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -159,52 +161,57 @@ class SelectStateUsa extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: ListView.builder(
-                        itemCount: usStates.length,
-                        itemBuilder: (context, i) {
-                          return Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Align(
-                              child: Container(
-                                height: 80,
-                                width: 180.w,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Text(
-                                      usStates[i].toUpperCase(),
-                                      style: GoogleFonts.syne(
-                                        color: Colors.white,
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
+                      child: BlocBuilder<LocationBloc, LocationState>(
+                        builder: (context, state) {
+                          return ListView.builder(
+                            itemCount: state.locations.length,
+                            itemBuilder: (context, i) {
+                              return Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Align(
+                                  child: Container(
+                                    height: 80,
+                                    width: 180.w,
+                                    child: Center(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5),
+                                        child: Text(
+                                          state.locations[i].stateName!
+                                              .toUpperCase(),
+                                          style: GoogleFonts.syne(
+                                            color: Colors.white,
+                                            fontSize: 13.sp,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                        ),
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: thirdcolor,
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(33),
+                                        bottomLeft: Radius.circular(20),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color.fromARGB(
+                                            113,
+                                            17,
+                                            17,
+                                            17,
+                                          ),
+                                          blurRadius: 4,
+                                          offset: Offset(0, 7),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                                decoration: BoxDecoration(
-                                  color: thirdcolor,
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(33),
-                                    bottomLeft: Radius.circular(20),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color.fromARGB(
-                                        113,
-                                        17,
-                                        17,
-                                        17,
-                                      ),
-                                      blurRadius: 4,
-                                      offset: Offset(0, 7),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                              );
+                            },
                           );
                         },
                       ),
