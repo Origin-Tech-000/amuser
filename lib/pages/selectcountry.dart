@@ -36,6 +36,9 @@ class SelectCountry extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       v.value = 0;
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (ctx) => PageHolder()),
+                      );
                     },
                     icon: Icon(
                       Icons.arrow_back_ios_new,

@@ -81,8 +81,8 @@ class SearchBarItems extends StatelessWidget {
         height: 50.sp,
         // color: fifth,
         decoration: BoxDecoration(
+          // color: six,
           color: fifth,
-
           boxShadow: [
             BoxShadow(blurRadius: 4, color: Colors.black, offset: Offset(0, 4)),
           ],
@@ -94,7 +94,7 @@ class SearchBarItems extends StatelessWidget {
         // ),
         // ),
         child: TextFormField(
-          style: GoogleFonts.poppins(color: Colors.white),
+          style: GoogleFonts.poppins(color: Colors.white, fontSize: 12.sp),
           decoration: InputDecoration(
             border: InputBorder.none,
 

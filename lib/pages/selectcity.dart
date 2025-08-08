@@ -290,7 +290,7 @@ class SelectStateKerala extends StatelessWidget {
                             child: Text(
                               'LOCATION',
                               style: GoogleFonts.lora(
-                                fontSize: 18,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
                               ),
@@ -307,7 +307,7 @@ class SelectStateKerala extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             letterSpacing: 1,
                             color: const Color.fromARGB(189, 255, 255, 255),
-                            fontSize: 30,
+                            fontSize: 23.sp,
                             fontWeight: FontWeight.w700,
                           ),
                         ),

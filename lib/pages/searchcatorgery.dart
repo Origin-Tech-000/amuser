@@ -57,6 +57,10 @@ class SearchCatagory extends StatelessWidget {
                   // ),
                   // ),
                   child: TextFormField(
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 12.sp,
+                    ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hint: Text(
@@ -90,7 +94,7 @@ class SearchCatagory extends StatelessWidget {
                           crossAxisCount: 2,
                           childAspectRatio: 1.5 / 1,
                         ),
-
+                        itemCount: state.cat.length,
                         itemBuilder: (context, i) {
                           return CatogeryTile(
                             catName: state.cat[i].categoryName,
