@@ -55,7 +55,7 @@ extension FailuresPatterns on Failures {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _getLocationFailure value)?  getLocationFailure,TResult Function( _getLocationServerError value)?  getLocationServerError,TResult Function( _GetCategoryFailure value)?  getCategoryFailure,TResult Function( _GetCategorySeverError value)?  getCategorySeverError,TResult Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _getLocationFailure value)?  getLocationFailure,TResult Function( _getLocationServerError value)?  getLocationServerError,TResult Function( _GetCategoryFailure value)?  getCategoryFailure,TResult Function( _GetCategorySeverError value)?  getCategorySeverError,TResult Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,TResult Function( _GetNewsOrAdsError value)?  getNewsOrAdsError,TResult Function( _GetNewsOrAdsFailure value)?  getNewsOrAdsFailure,TResult Function( _GetMarketPlaceItemFailure value)?  getMarketPlaceItemFailure,TResult Function( _GetMarketPlaceItemError value)?  getMarketPlaceItemError,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
@@ -64,7 +64,11 @@ return getLocationServerError(_that);case _GetCategoryFailure() when getCategory
 return getCategoryFailure(_that);case _GetCategorySeverError() when getCategorySeverError != null:
 return getCategorySeverError(_that);case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
 return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
-return getCategoryItemsSeverError(_that);case _:
+return getCategoryItemsSeverError(_that);case _GetNewsOrAdsError() when getNewsOrAdsError != null:
+return getNewsOrAdsError(_that);case _GetNewsOrAdsFailure() when getNewsOrAdsFailure != null:
+return getNewsOrAdsFailure(_that);case _GetMarketPlaceItemFailure() when getMarketPlaceItemFailure != null:
+return getMarketPlaceItemFailure(_that);case _GetMarketPlaceItemError() when getMarketPlaceItemError != null:
+return getMarketPlaceItemError(_that);case _:
   return orElse();
 
 }
@@ -82,7 +86,7 @@ return getCategoryItemsSeverError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _getLocationFailure value)  getLocationFailure,required TResult Function( _getLocationServerError value)  getLocationServerError,required TResult Function( _GetCategoryFailure value)  getCategoryFailure,required TResult Function( _GetCategorySeverError value)  getCategorySeverError,required TResult Function( _GetCategoryItemsFailure value)  getCategoryItemsFailure,required TResult Function( _GetCategoryItemsSeverError value)  getCategoryItemsSeverError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _getLocationFailure value)  getLocationFailure,required TResult Function( _getLocationServerError value)  getLocationServerError,required TResult Function( _GetCategoryFailure value)  getCategoryFailure,required TResult Function( _GetCategorySeverError value)  getCategorySeverError,required TResult Function( _GetCategoryItemsFailure value)  getCategoryItemsFailure,required TResult Function( _GetCategoryItemsSeverError value)  getCategoryItemsSeverError,required TResult Function( _GetNewsOrAdsError value)  getNewsOrAdsError,required TResult Function( _GetNewsOrAdsFailure value)  getNewsOrAdsFailure,required TResult Function( _GetMarketPlaceItemFailure value)  getMarketPlaceItemFailure,required TResult Function( _GetMarketPlaceItemError value)  getMarketPlaceItemError,}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure():
@@ -91,7 +95,11 @@ return getLocationServerError(_that);case _GetCategoryFailure():
 return getCategoryFailure(_that);case _GetCategorySeverError():
 return getCategorySeverError(_that);case _GetCategoryItemsFailure():
 return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError():
-return getCategoryItemsSeverError(_that);}
+return getCategoryItemsSeverError(_that);case _GetNewsOrAdsError():
+return getNewsOrAdsError(_that);case _GetNewsOrAdsFailure():
+return getNewsOrAdsFailure(_that);case _GetMarketPlaceItemFailure():
+return getMarketPlaceItemFailure(_that);case _GetMarketPlaceItemError():
+return getMarketPlaceItemError(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -105,7 +113,7 @@ return getCategoryItemsSeverError(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _getLocationFailure value)?  getLocationFailure,TResult? Function( _getLocationServerError value)?  getLocationServerError,TResult? Function( _GetCategoryFailure value)?  getCategoryFailure,TResult? Function( _GetCategorySeverError value)?  getCategorySeverError,TResult? Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult? Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _getLocationFailure value)?  getLocationFailure,TResult? Function( _getLocationServerError value)?  getLocationServerError,TResult? Function( _GetCategoryFailure value)?  getCategoryFailure,TResult? Function( _GetCategorySeverError value)?  getCategorySeverError,TResult? Function( _GetCategoryItemsFailure value)?  getCategoryItemsFailure,TResult? Function( _GetCategoryItemsSeverError value)?  getCategoryItemsSeverError,TResult? Function( _GetNewsOrAdsError value)?  getNewsOrAdsError,TResult? Function( _GetNewsOrAdsFailure value)?  getNewsOrAdsFailure,TResult? Function( _GetMarketPlaceItemFailure value)?  getMarketPlaceItemFailure,TResult? Function( _GetMarketPlaceItemError value)?  getMarketPlaceItemError,}){
 final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
@@ -114,7 +122,11 @@ return getLocationServerError(_that);case _GetCategoryFailure() when getCategory
 return getCategoryFailure(_that);case _GetCategorySeverError() when getCategorySeverError != null:
 return getCategorySeverError(_that);case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
 return getCategoryItemsFailure(_that);case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
-return getCategoryItemsSeverError(_that);case _:
+return getCategoryItemsSeverError(_that);case _GetNewsOrAdsError() when getNewsOrAdsError != null:
+return getNewsOrAdsError(_that);case _GetNewsOrAdsFailure() when getNewsOrAdsFailure != null:
+return getNewsOrAdsFailure(_that);case _GetMarketPlaceItemFailure() when getMarketPlaceItemFailure != null:
+return getMarketPlaceItemFailure(_that);case _GetMarketPlaceItemError() when getMarketPlaceItemError != null:
+return getMarketPlaceItemError(_that);case _:
   return null;
 
 }
@@ -131,7 +143,7 @@ return getCategoryItemsSeverError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getLocationFailure,TResult Function()?  getLocationServerError,TResult Function()?  getCategoryFailure,TResult Function()?  getCategorySeverError,TResult Function()?  getCategoryItemsFailure,TResult Function()?  getCategoryItemsSeverError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getLocationFailure,TResult Function()?  getLocationServerError,TResult Function()?  getCategoryFailure,TResult Function()?  getCategorySeverError,TResult Function()?  getCategoryItemsFailure,TResult Function()?  getCategoryItemsSeverError,TResult Function()?  getNewsOrAdsError,TResult Function()?  getNewsOrAdsFailure,TResult Function()?  getMarketPlaceItemFailure,TResult Function()?  getMarketPlaceItemError,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure();case _getLocationServerError() when getLocationServerError != null:
@@ -139,7 +151,11 @@ return getLocationServerError();case _GetCategoryFailure() when getCategoryFailu
 return getCategoryFailure();case _GetCategorySeverError() when getCategorySeverError != null:
 return getCategorySeverError();case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
 return getCategoryItemsFailure();case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
-return getCategoryItemsSeverError();case _:
+return getCategoryItemsSeverError();case _GetNewsOrAdsError() when getNewsOrAdsError != null:
+return getNewsOrAdsError();case _GetNewsOrAdsFailure() when getNewsOrAdsFailure != null:
+return getNewsOrAdsFailure();case _GetMarketPlaceItemFailure() when getMarketPlaceItemFailure != null:
+return getMarketPlaceItemFailure();case _GetMarketPlaceItemError() when getMarketPlaceItemError != null:
+return getMarketPlaceItemError();case _:
   return orElse();
 
 }
@@ -157,7 +173,7 @@ return getCategoryItemsSeverError();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getLocationFailure,required TResult Function()  getLocationServerError,required TResult Function()  getCategoryFailure,required TResult Function()  getCategorySeverError,required TResult Function()  getCategoryItemsFailure,required TResult Function()  getCategoryItemsSeverError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getLocationFailure,required TResult Function()  getLocationServerError,required TResult Function()  getCategoryFailure,required TResult Function()  getCategorySeverError,required TResult Function()  getCategoryItemsFailure,required TResult Function()  getCategoryItemsSeverError,required TResult Function()  getNewsOrAdsError,required TResult Function()  getNewsOrAdsFailure,required TResult Function()  getMarketPlaceItemFailure,required TResult Function()  getMarketPlaceItemError,}) {final _that = this;
 switch (_that) {
 case _getLocationFailure():
 return getLocationFailure();case _getLocationServerError():
@@ -165,7 +181,11 @@ return getLocationServerError();case _GetCategoryFailure():
 return getCategoryFailure();case _GetCategorySeverError():
 return getCategorySeverError();case _GetCategoryItemsFailure():
 return getCategoryItemsFailure();case _GetCategoryItemsSeverError():
-return getCategoryItemsSeverError();}
+return getCategoryItemsSeverError();case _GetNewsOrAdsError():
+return getNewsOrAdsError();case _GetNewsOrAdsFailure():
+return getNewsOrAdsFailure();case _GetMarketPlaceItemFailure():
+return getMarketPlaceItemFailure();case _GetMarketPlaceItemError():
+return getMarketPlaceItemError();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -179,7 +199,7 @@ return getCategoryItemsSeverError();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getLocationFailure,TResult? Function()?  getLocationServerError,TResult? Function()?  getCategoryFailure,TResult? Function()?  getCategorySeverError,TResult? Function()?  getCategoryItemsFailure,TResult? Function()?  getCategoryItemsSeverError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getLocationFailure,TResult? Function()?  getLocationServerError,TResult? Function()?  getCategoryFailure,TResult? Function()?  getCategorySeverError,TResult? Function()?  getCategoryItemsFailure,TResult? Function()?  getCategoryItemsSeverError,TResult? Function()?  getNewsOrAdsError,TResult? Function()?  getNewsOrAdsFailure,TResult? Function()?  getMarketPlaceItemFailure,TResult? Function()?  getMarketPlaceItemError,}) {final _that = this;
 switch (_that) {
 case _getLocationFailure() when getLocationFailure != null:
 return getLocationFailure();case _getLocationServerError() when getLocationServerError != null:
@@ -187,7 +207,11 @@ return getLocationServerError();case _GetCategoryFailure() when getCategoryFailu
 return getCategoryFailure();case _GetCategorySeverError() when getCategorySeverError != null:
 return getCategorySeverError();case _GetCategoryItemsFailure() when getCategoryItemsFailure != null:
 return getCategoryItemsFailure();case _GetCategoryItemsSeverError() when getCategoryItemsSeverError != null:
-return getCategoryItemsSeverError();case _:
+return getCategoryItemsSeverError();case _GetNewsOrAdsError() when getNewsOrAdsError != null:
+return getNewsOrAdsError();case _GetNewsOrAdsFailure() when getNewsOrAdsFailure != null:
+return getNewsOrAdsFailure();case _GetMarketPlaceItemFailure() when getMarketPlaceItemFailure != null:
+return getMarketPlaceItemFailure();case _GetMarketPlaceItemError() when getMarketPlaceItemError != null:
+return getMarketPlaceItemError();case _:
   return null;
 
 }
@@ -379,6 +403,134 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'Failures.getCategoryItemsSeverError()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetNewsOrAdsError implements Failures {
+  const _GetNewsOrAdsError();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetNewsOrAdsError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getNewsOrAdsError()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetNewsOrAdsFailure implements Failures {
+  const _GetNewsOrAdsFailure();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetNewsOrAdsFailure);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getNewsOrAdsFailure()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetMarketPlaceItemFailure implements Failures {
+  const _GetMarketPlaceItemFailure();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetMarketPlaceItemFailure);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getMarketPlaceItemFailure()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _GetMarketPlaceItemError implements Failures {
+  const _GetMarketPlaceItemError();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetMarketPlaceItemError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'Failures.getMarketPlaceItemError()';
 }
 
 

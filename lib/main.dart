@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:am/androidsplash.dart';
 import 'package:am/application/category/category_bloc.dart';
 import 'package:am/application/location/location_bloc.dart';
+import 'package:am/application/market_place/market_place_bloc.dart';
+import 'package:am/application/news_and_ads/news_and_ads_bloc.dart';
 import 'package:am/domain/core/di/injectable.dart';
 import 'package:am/pages/itemlanding.dart';
 import 'package:am/pages/landing.dart';
@@ -36,6 +38,8 @@ Future<void> main() async {
           providers: [
             BlocProvider(create: (context) => getIt<CategoryBloc>()),
             BlocProvider(create: (context) => getIt<LocationBloc>()),
+            BlocProvider(create: (context) => getIt<NewsAndAdsBloc>()),
+            BlocProvider(create: (context) => getIt<MarketPlaceBloc>()),
           ],
 
           child: MaterialApp(

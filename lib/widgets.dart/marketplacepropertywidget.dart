@@ -1,11 +1,13 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/market_place/model/market_place_model.dart';
 import 'package:am/pages/marketplacepropertylanding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MarketPlacePropertyWidget extends StatelessWidget {
-  const MarketPlacePropertyWidget({super.key});
+  final MarketPlaceModel model;
+  const MarketPlacePropertyWidget({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class MarketPlacePropertyWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (ctx) => MarketPlacePropertyLanding()),
+            MaterialPageRoute(
+              builder: (ctx) => MarketPlacePropertyLanding(model: model),
+            ),
           );
         },
         child: Container(
@@ -47,7 +51,7 @@ class MarketPlacePropertyWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(4),
                           child: Text(
-                            'Descrpition Of the Property, Descrpition Of the Property,Descrpition Of the Property',
+                            model.description,
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.prompt(
@@ -73,7 +77,7 @@ class MarketPlacePropertyWidget extends StatelessWidget {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    'Price',
+                                    model.price,
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w700,
@@ -100,7 +104,7 @@ class MarketPlacePropertyWidget extends StatelessWidget {
                   ),
                   child: Container(
                     color: Colors.white,
-                    // child: Image.asset('name'),
+                    child: Image.network(model.photos![0]),
                   ),
                 ),
               ),

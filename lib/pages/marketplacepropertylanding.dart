@@ -1,4 +1,5 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/market_place/model/market_place_model.dart';
 import 'package:am/widgets.dart/bottomnavbar.dart';
 
 import 'package:am/widgets.dart/marketplaceproperty_imageholder.dart';
@@ -6,9 +7,11 @@ import 'package:am/widgets.dart/marketplaceproperty_imageholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart' as launch_url;
 
 class MarketPlacePropertyLanding extends StatelessWidget {
-  const MarketPlacePropertyLanding({super.key});
+  final MarketPlaceModel model;
+  const MarketPlacePropertyLanding({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +41,10 @@ class MarketPlacePropertyLanding extends StatelessWidget {
             child: Column(
               children: [
                 // SafeArea(child: Logo()),
-                MarketPlacePropertyImageHolder(),
-                Details(),
-                DescriptionProperty(),
-                CallButtonProperty(),
+                MarketPlacePropertyImageHolder(images: model.photos!),
+                Details(m: model),
+                DescriptionProperty(desc: model.description),
+                CallButtonProperty(no: model.phoneNumber),
               ],
             ),
           ),
@@ -52,7 +55,8 @@ class MarketPlacePropertyLanding extends StatelessWidget {
 }
 
 class Details extends StatelessWidget {
-  const Details({super.key});
+  final MarketPlaceModel m;
+  const Details({super.key, required this.m});
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +99,7 @@ class Details extends StatelessWidget {
                 ],
               ),
               Text(
-                'BRAND NAME',
+                m.name,
                 style: GoogleFonts.prompt(
                   color: fourthcolor,
                   fontSize: 14.sp,
@@ -119,7 +123,7 @@ class Details extends StatelessWidget {
                       height: 35.h,
                       child: Center(
                         child: Text(
-                          'PRICE',
+                          m.price,
                           style: GoogleFonts.prompt(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -141,7 +145,8 @@ class Details extends StatelessWidget {
 }
 
 class DescriptionProperty extends StatelessWidget {
-  const DescriptionProperty({super.key});
+  final String desc;
+  const DescriptionProperty({super.key, required this.desc});
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +180,7 @@ class DescriptionProperty extends StatelessWidget {
                   SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      '''10000 sqft luxury mansion for sale located in the heart of Houston prime location perfect for family living or investment high ceilings spacious living and dining areas modern kitchen with premium appliances 6 bedrooms 7 bathrooms home theater gym private office game room large backyard with pool and patio smart home features fully furnished move in ready gated entry with top security system three car garage beautifully landscaped surroundings close to top schools shopping and dining peaceful neighborhood serious inquiries only price upon request contact for more info or to schedule a private viewing''',
+                      '''$desc''',
                       style: GoogleFonts.poppins(
                         fontSize: 10,
                         color: Colors.white,
@@ -193,37 +198,44 @@ class DescriptionProperty extends StatelessWidget {
 }
 
 class CallButtonProperty extends StatelessWidget {
-  const CallButtonProperty({super.key});
+  final String no;
+  const CallButtonProperty({super.key, required this.no});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 6, 20, 20),
-      child: Container(
-        decoration: BoxDecoration(
-          color: thirdcolor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            bottomRight: Radius.circular(33),
+    return GestureDetector(
+      onTap: () async {
+        Uri uri = Uri(scheme: 'tel', path: no);
+        await launch_url.launchUrl(uri);
+      },
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 6, 20, 20),
+        child: Container(
+          decoration: BoxDecoration(
+            color: thirdcolor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              bottomRight: Radius.circular(33),
+            ),
           ),
-        ),
-        // width: MediaQuery.of(context).size.width,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: fifth,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  'Call Now',
-                  style: GoogleFonts.prompt(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.sp,
+          // width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: fifth,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    'Call Now',
+                    style: GoogleFonts.prompt(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12.sp,
+                    ),
                   ),
                 ),
               ),

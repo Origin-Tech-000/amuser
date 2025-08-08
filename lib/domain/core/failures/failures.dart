@@ -12,4 +12,11 @@ sealed class Failures with _$Failures {
   const factory Failures.getCategoryItemsFailure() = _GetCategoryItemsFailure;
   const factory Failures.getCategoryItemsSeverError() =
       _GetCategoryItemsSeverError;
+
+  const factory Failures.getNewsOrAdsError() = _GetNewsOrAdsError;
+  const factory Failures.getNewsOrAdsFailure() = _GetNewsOrAdsFailure;
+
+  const factory Failures.getMarketPlaceItemFailure() =
+      _GetMarketPlaceItemFailure;
+  const factory Failures.getMarketPlaceItemError() = _GetMarketPlaceItemError;
 }

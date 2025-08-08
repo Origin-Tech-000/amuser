@@ -1,8 +1,10 @@
+import 'package:am/application/market_place/market_place_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/pages/makertplace_car.dart';
 import 'package:am/pages/marketplace_property.dart';
 import 'package:am/pages/pageholder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -119,6 +121,13 @@ class CarsWidget extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
       child: GestureDetector(
         onTap: () {
+          context.read<MarketPlaceBloc>().add(
+            MarketPlaceEvent.getMarketPlaceItems(
+              stateName: 'texas',
+              cityName: 'houston',
+              type: 'car',
+            ),
+          );
           Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (ctx) => MarketPlaceCars()));
@@ -210,6 +219,11 @@ class PropertyWidget extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
       child: GestureDetector(
         onTap: () {
+          MarketPlaceEvent.getMarketPlaceItems(
+            stateName: 'texas',
+            cityName: 'houston',
+            type: 'property',
+          );
           Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (ctx) => MarketPlaceProperty()));
