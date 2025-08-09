@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:am/androidsplash.dart';
 import 'package:am/application/category/category_bloc.dart';
 import 'package:am/application/location/location_bloc.dart';
+import 'package:am/domain/category/category_item/category_item_model.dart';
 import 'package:am/domain/core/di/injectable.dart';
 import 'package:am/pages/itemlanding.dart';
+import 'package:am/pages/itemlandingsimple.dart';
 import 'package:am/pages/landing.dart';
 import 'package:am/pages/makertplace_car.dart';
 import 'package:am/pages/markertplace.dart';
@@ -53,7 +55,7 @@ class CheckPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Androidsplash();
+    // return Androidsplash();
     // return SelectCountry();
     // return SearchCatagory();
     // return MarketPlace();
@@ -62,9 +64,27 @@ class CheckPage extends StatelessWidget {
     // return NewsLanding();
 
     // return SearchItems();
-    // return ItemLanding();
+    // return ItemLanding(
+    //   model: CategoryItemModel(
+    //     shopName: 'shopName',
+    //     moto: 'moto',
+    //     address: 'address',
+    //     description: 'description',
+    //     contactNumber: 'contactNumber',
+    //     email: 'email',
+    //     location: 'location',
+    //     timeOpening: 'timeOpening',
+    //     timeClosing: 'timeClosing',
+    //     categoryName: '',
+    //     cityName: '',
+    //     imageUrl: '',
+    //     logoUrl: '',
+    //     stateName: '',
+    //   ),
+    // );
     // return MarketPlaceCars();
     // return HomeLanding();
     // return SelectState();
+    return ItemLandingSimple();
   }
 }

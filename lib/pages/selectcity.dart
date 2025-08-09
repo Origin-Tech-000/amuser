@@ -253,18 +253,33 @@ class SelectStateKerala extends StatelessWidget {
               children: [
                 Positioned(
                   bottom: -100,
-                  right: -7,
+                  left: 100,
                   child: Container(
-                    height: MediaQuery.of(context).size.height * .85,
+                    height: MediaQuery.of(context).size.height * .5,
 
-                    width: MediaQuery.of(context).size.width * .5,
+                    width: MediaQuery.of(context).size.width * .9,
                     decoration: BoxDecoration(
                       // color: Colors.red,
-                      image: DecorationImage(
-                        image: AssetImage('assets/sol.png'),
-                        fit: BoxFit.fitWidth,
-                        opacity: .5,
-                      ),
+                    ),
+                    child: Opacity(
+                      opacity: .4,
+                      child: Image.asset('assets/elephant.png'),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: -100,
+                  right: 100,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * .65,
+
+                    width: MediaQuery.of(context).size.width * .9,
+                    decoration: BoxDecoration(
+                      // color: Colors.red,
+                    ),
+                    child: Opacity(
+                      opacity: .3,
+                      child: Image.asset('assets/tree.png'),
                     ),
                   ),
                 ),
