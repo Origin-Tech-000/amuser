@@ -1,10 +1,12 @@
 import 'package:am/core/colors.dart';
+import 'package:am/domain/news_and_ads/model/news_and_ads_model.dart';
 import 'package:am/pages/newslanding.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  final NewsAndAdsModel m;
+  const NewsTile({super.key, required this.m});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +30,7 @@ class NewsTile extends StatelessWidget {
                 bottomLeft: Radius.circular(22),
               ),
               child: Container(
-                child: Image.asset(
-                  'assets/backgroundlanding.png',
-                  fit: BoxFit.cover,
-                ),
+                child: Image.network(m.imageUrl ?? '', fit: BoxFit.cover),
               ),
             ),
           ),
@@ -42,7 +41,7 @@ class NewsTile extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'NEWS HEADINGndoisnconsoincionsoicndniocniondcoidnocnnodnscnoisscjsdkcndjkncjncdncocnsodnconsonc,',
+                    m.description ?? '',
                     style: GoogleFonts.prompt(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,

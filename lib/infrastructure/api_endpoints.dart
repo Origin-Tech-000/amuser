@@ -8,4 +8,10 @@ class ApiEndPoints {
   //category
   static const getCat = "/categories/getCategories";
   static const getCatItems = "/categories/getCategoriesItems";
+
+  //ads and news
+  static const getAdsAndNews = "/adsandnews/getAdsAndNews";
+
+  //marketplace
+  static const getMarketItems = "/market/getmarketitems";
 }

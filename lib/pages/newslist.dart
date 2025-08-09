@@ -1,8 +1,10 @@
+import 'package:am/application/news_and_ads/news_and_ads_bloc.dart';
 import 'package:am/core/colors.dart';
 import 'package:am/widgets.dart/dec.dart';
 import 'package:am/widgets.dart/newstile.dart';
 import 'package:am/widgets.dart/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewsList extends StatelessWidget {
@@ -34,11 +36,16 @@ class NewsList extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    itemBuilder: (context, i) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: NewsTile(),
+                  child: BlocBuilder<NewsAndAdsBloc, NewsAndAdsState>(
+                    builder: (context, state) {
+                      return ListView.builder(
+                        itemCount: state.news.length,
+                        itemBuilder: (context, i) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 15),
+                            child: NewsTile(m: state.news[i]),
+                          );
+                        },
                       );
                     },
                   ),
